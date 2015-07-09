@@ -1,5 +1,5 @@
 <?php
-class VendingMachine
+class VendingMoney
 {
 
 }
