@@ -13,6 +13,20 @@ class VendingMachine
 	private $_total;
 
 	/**
+	 * トレイ
+	 */
+	private $_tray;
+
+	/**
+	 * コンストラクタ
+	 */
+	public function __construct()
+	{
+		$this->_total = 0;
+		$this->_tray  = 0;
+	}
+
+	/**
 	 * 投入されたお金を受け取る
 	 *
 	 * @param integer $amount 投入金額
@@ -42,11 +56,12 @@ class VendingMachine
 	 *
 	 * @param integer $money 返してほしい金額
 	 *
-	 * @return integer
+	 * @return none
 	 */
 	private function _return_money($money = null)
 	{
 		//トレイに金額を保管する
+		$this->_tray += $money;
 	}
 
 	/**
