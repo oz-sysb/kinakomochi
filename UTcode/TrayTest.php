@@ -35,8 +35,4 @@ class TrayTest extends PHPUnit_Framework_TestCase
 		$this->object->add_amount(100);
 		$this->assertEquals(200, $this->object->get_amount());
 	}
-//	public function test_get_moneyを呼ぶ()
-//	{
-//		$this->object->get_money();
-//	}
 }
