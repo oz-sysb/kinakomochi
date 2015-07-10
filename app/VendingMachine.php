@@ -31,7 +31,7 @@ class VendingMachine
 	 *
 	 * @param integer $amount 投入金額
 	 *
-	 * @return boolean
+	 * @return integer 総計金額
 	 */
 	public function take_money($amount = null)
 	{
@@ -43,12 +43,14 @@ class VendingMachine
 		if($money_check->is_valid_money($amount) === false)
 		{
 			$this->_return_money($amount);
-			return false;
 		}
-		//合計金額を数えて保管する
-		$this->_total += $amount;
-		//合計値が計算できたら、成功したことを知らせる
-		return true;
+		else
+		{
+			//合計金額を数えて保管する
+			$this->_total += $amount;
+		}
+		//合計値が計算できたら
+		return $this->_total;
 	}
 
 	/**
@@ -84,5 +86,6 @@ class VendingMachine
 	{
 		//保存されている合計値を返す
 	}
+
 
 }
