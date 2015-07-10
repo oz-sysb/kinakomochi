@@ -46,10 +46,10 @@ class VendingMachine
 		}
 		else
 		{
-			//合計金額を数えて保管する
+			//総計金額を数えて保管する
 			$this->_total += $amount;
 		}
-		//合計値が計算できたら
+		//総計金額が計算できたら
 		return $this->_total;
 	}
 
@@ -60,31 +60,33 @@ class VendingMachine
 	 *
 	 * @return none
 	 */
-	private function _return_money($money = null)
+	private function _take_to_tray($money = null)
 	{
 		//トレイに金額を保管する
 		$this->_tray += $money;
 	}
 
 	/**
-	 * 全額を返す
+	 * 全額を払い戻す
 	 *
-	 * @return integer
+	 * @return none
 	 */
-	public function return_all_money()
+	public function pay_back()
 	{
-		//_reset_taken_money()で合計値をリセットして、
-		//保存されていた合計値を返す
+		//保存されていた総計金額を返す
+		//_reset_taken_money()で総計金額をリセットして、
+		$this->_tray += $this->_total;
+		$this->_total = 0;
 	}
 
 	/**
-	 * 合計値をゼロにする
+	 * 総計金額をゼロにする
 	 *
 	 * @return void
 	 */
 	private function _reset_taken_money()
 	{
-		//保存されている合計値を返す
+		//保存されている総計金額を返す
 	}
 
 
