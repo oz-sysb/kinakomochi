@@ -35,21 +35,15 @@ class VendingMachine
 	 */
 	public function take_money($amount = null)
 	{
-		//お金はinegerしか許可しない、配列(複数のお金）の場合はそのまま吐き出して終わる
 		$money_check = new MoneyCheck();
-		//メソッドを呼ぶ
-		//上のメソッドで許可されているお金かを確認する
-		//許可されていないお金をそのまま返す
 		if($money_check->is_valid_money($amount) === false)
 		{
 			$this->_take_to_tray($amount);
 		}
 		else
 		{
-			//総計金額を数えて保管する
 			$this->_total += $amount;
 		}
-		//総計金額が計算できたら
 		return $this->_total;
 	}
 
@@ -60,10 +54,9 @@ class VendingMachine
 	 *
 	 * @return none
 	 */
-	private function _take_to_tray($money = null)
+	private function _take_to_tray($amount = null)
 	{
-		//トレイに金額を保管する
-		$this->_tray += $money;
+		$this->_tray += $amount;
 	}
 
 	/**
@@ -73,21 +66,7 @@ class VendingMachine
 	 */
 	public function pay_back()
 	{
-		//保存されていた総計金額を返す
-		//_reset_taken_money()で総計金額をリセットして、
 		$this->_tray += $this->_total;
 		$this->_total = 0;
 	}
-
-	/**
-	 * 総計金額をゼロにする
-	 *
-	 * @return void
-	 */
-	private function _reset_taken_money()
-	{
-		//保存されている総計金額を返す
-	}
-
-
 }
