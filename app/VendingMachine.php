@@ -1,11 +1,12 @@
 <?php
 
+require_once('MoneyCheck.php');
+
 /**
  * Class VendingMachine　モデル的な役割
  */
 class VendingMachine
 {
-	require_once('MoneyCheck.php');
 	/**
 	 * 総計金額
 	 */
@@ -25,7 +26,7 @@ class VendingMachine
 		//メソッドを呼ぶ
 		//上のメソッドで許可されているお金かを確認する
 		//許可されていないお金をそのまま返す
-    if($money_check->is_valid_money($amount) === false)
+		if($money_check->is_valid_money($amount) === false)
 		{
 			$this->_return_money($amount);
 			return false;
