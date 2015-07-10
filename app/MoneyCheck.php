@@ -13,7 +13,7 @@ class MoneyCheck
 	 *
 	 * @return boolean
 	 */
-	public function is_valid_money($amount)
+	public function validate_money($amount)
 	{
 		return in_array($amount, self::$_valid_money, true);
 	}

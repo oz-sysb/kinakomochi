@@ -15,7 +15,7 @@ class VendingMachine
 	/**
 	 * トレイ
 	 */
-	private $_tray;
+	public $tray;
 
 	/**
 	 * コンストラクタ
@@ -23,7 +23,7 @@ class VendingMachine
 	public function __construct()
 	{
 		$this->_total = 0;
-		$this->_tray  = 0;
+		$this->tray  = new Tray();
 	}
 
 	/**
@@ -36,27 +36,15 @@ class VendingMachine
 	public function take_money($amount = null)
 	{
 		$money_check = new MoneyCheck();
-		if($money_check->is_valid_money($amount) === false)
-		{
-			$this->_take_to_tray($amount);
-		}
-		else
+		if($money_check->validate_money($amount))
 		{
 			$this->_total += $amount;
 		}
+		else
+		{
+			$this->tray->add_amount($amount);
+		}
 		return $this->_total;
-	}
-
-	/**
-	 * お金を受け取るトレイにいれる（トレイに保管する）
-	 *
-	 * @param integer $money 返してほしい金額
-	 *
-	 * @return none
-	 */
-	private function _take_to_tray($amount = null)
-	{
-		$this->_tray += $amount;
 	}
 
 	/**
@@ -66,7 +54,7 @@ class VendingMachine
 	 */
 	public function pay_back()
 	{
-		$this->_tray += $this->_total;
+		$this->tray->add_amount($this->_total);
 		$this->_total = 0;
 	}
 }
