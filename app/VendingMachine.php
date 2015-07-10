@@ -42,7 +42,7 @@ class VendingMachine
 		//許可されていないお金をそのまま返す
 		if($money_check->is_valid_money($amount) === false)
 		{
-			$this->_return_money($amount);
+			$this->_take_to_tray($amount);
 		}
 		else
 		{
