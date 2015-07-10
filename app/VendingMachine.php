@@ -1,6 +1,7 @@
 <?php
 
 require_once('MoneyCheck.php');
+require_once('Tray.php');
 
 /**
  * Class VendingMachine　モデル的な役割

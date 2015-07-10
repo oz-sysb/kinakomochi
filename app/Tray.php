@@ -15,11 +15,17 @@ class Tray
    * 加算する
    *
    * @param integer $amount 数
-   * @return none
+   *
+   * @return boolean 投入に成功したか否か
    */
   public function add_amount($amount)
   {
-    $this->_amount += $amount;
+    if(intval($amount))
+    {
+      $this->_amount += $amount;
+      return true;
+    }
+    return false;
   }
 
   /**
