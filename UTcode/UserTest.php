@@ -14,7 +14,6 @@ class UserTest extends PHPUnit_Framework_TestCase
 
 	public function test_put_moneyを呼ぶ()
 	{
-		echo __DIR__;
 		$this->object->put_money(10);
 	}
 
