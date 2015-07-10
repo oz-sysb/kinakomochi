@@ -5,20 +5,35 @@
  */
 class VendingMachine
 {
+	require_once('MoneyCheck.php');
 	/**
-	 * 投入さたお金を受け取る
+	 * 総計金額
+	 */
+	private $_total;
+
+	/**
+	 * 投入されたお金を受け取る
 	 *
 	 * @param integer $amount 投入金額
 	 *
-	 * @return void
+	 * @return boolean
 	 */
-	public function take_money($money = null)
+	public function take_money($amount = null)
 	{
 		//お金はinegerしか許可しない、配列(複数のお金）の場合はそのまま吐き出して終わる
-		//許可されているお金かを確認する
+		$money_check = new MoneyCheck();
+		//メソッドを呼ぶ
+		//上のメソッドで許可されているお金かを確認する
 		//許可されていないお金をそのまま返す
+    if($money_check->is_valid_money($amount) === false)
+		{
+			$this->_return_money($amount);
+			return false;
+		}
 		//合計金額を数えて保管する
+		$this->_total += $amount;
 		//合計値が計算できたら、成功したことを知らせる
+		return true;
 	}
 
 	/**

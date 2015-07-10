@@ -7,5 +7,9 @@ class MoneyCheck
 	/**
 	 * 許可されているお金かを確認する
 	 */
+	public is_valid_money($amount)
+	{
+		return true;
+	}
 
 }
