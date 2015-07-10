@@ -6,10 +6,13 @@ class MoneyCheck
 
 	/**
 	 * 許可されているお金かを確認する
+	 *
+	 * @param integer $amount 金額
+	 *
+	 * @return boolean
 	 */
 	public function is_valid_money($amount)
 	{
-		return true;
+		return in_array($amount, self::$_valid_money, true);
 	}
-
 }
