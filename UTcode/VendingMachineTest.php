@@ -100,12 +100,16 @@ class VendingMachineTest extends PHPUnit_Framework_TestCase
 
 	public function test_take_money_10円と100円を一緒に入れる()
 	{
-		$this->assertequals(0, $this->object->take_money(array()));
+		$this->assertequals(0, $this->object->take_money(array(10, 100)));
 	}
 
 	/**
 	 * pay_back()のUnitTest
 	 */
+	public function test_pay_back_初期状態()
+	{
+		echo "voidなので今なにもできん1\n";
+	}
 
 
 }
