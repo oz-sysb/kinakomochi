@@ -31,7 +31,7 @@ class User
 		//VendingMachineのreturn_all_money()を呼び出して、
 		$vending_machine = new VendingMachine();
 		//下記の関数はVendingmachineクラスで未実装
-		return $vending_machine->return_all_money();
+		return $vending_machine->pay_back();
 	}
 
 	/**
