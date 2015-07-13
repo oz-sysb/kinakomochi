@@ -7,7 +7,7 @@
 <body>
 	<ul>
 		<li>
-			<button>お金を入れる</button>
+			<button>お金を入れる</button> <input type="text">円
 		</li>
 		<li>
 			<button>払い戻す</button>
@@ -16,5 +16,9 @@
 			<button>トレイからとる</button>
 		</li>
 	</ul>
+	レスポンス表示ボックス<br>
+	<textarea>
+
+	</textarea>
 </body>
 </html>
