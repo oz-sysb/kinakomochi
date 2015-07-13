@@ -25,7 +25,8 @@ class User
 	public function get_money()
 	{
 		//VendingMachineのreturn_all_money()を呼び出して、
-		//終了する
+		$vendingmachine = new VendingMachine();
+		return $vendingmachine->take_money();
 	}
 
 	/**
