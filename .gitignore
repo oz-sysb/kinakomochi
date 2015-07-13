@@ -1,14 +1,14 @@
-# IntelliJ ƒvƒƒWƒFƒNƒg
+# IntelliJ ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆ
 /*.iml
 /.idea
 
-# MACƒVƒXƒeƒ€ƒtƒHƒ‹ƒ_
+# MACã‚·ã‚¹ãƒ†ãƒ ãƒ•ã‚©ãƒ«ãƒ€
 .DS_Store
 
-# Windows ƒTƒ€ƒlƒCƒ‹ƒLƒƒƒbƒVƒ…
+# Windows ã‚µãƒ ãƒã‚¤ãƒ«ã‚­ãƒ£ãƒƒã‚·ãƒ¥
 Thumbs.db
 
-# eclipse ƒvƒƒWƒFƒNƒgŒü‚¯
+# eclipse ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆå‘ã‘
 /.buildpath
 /.project
 /.settings/
