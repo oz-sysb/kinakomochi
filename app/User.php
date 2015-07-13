@@ -16,8 +16,8 @@ class User
 	public function put_money($money = null)
 	{
 		//VendingMachineのtake_moneyにそのままお金を渡して、戻り値を見ない（トレイに保管されているお金を取り出す時は別の処理を動く）
-		$vendingmachine = new VendingMachine();
-		$vendingmachine->take_money($money);
+		$vending_machine = new VendingMachine();
+		$vending_machine->take_money($money);
 
 	}
 
@@ -26,12 +26,12 @@ class User
 	 *
 	 * @return integer|null
 	 */
-	public function get_money()
+	public function pay_buck()
 	{
 		//VendingMachineのreturn_all_money()を呼び出して、
-		$vendingmachine = new VendingMachine();
+		$vending_machine = new VendingMachine();
 		//下記の関数はVendingmachineクラスで未実装
-		return $vendingmachine->return_all_money();
+		return $vending_machine->return_all_money();
 	}
 
 	/**
