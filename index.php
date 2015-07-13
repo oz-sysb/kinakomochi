@@ -2,7 +2,6 @@
 
 require_once('app/VendingMachine.php');
 
-
 session_start();
 
 $_SESSION['vending_machine'] = new VendingMachine();
@@ -32,7 +31,7 @@ $_SESSION['vending_machine'] = new VendingMachine();
 			<button id="put-money-button">お金を入れる</button>
 		</li>
 		<li>
-			<button>払い戻す</button>
+			<button id="pay-back-button">払い戻す</button>
 		</li>
 		<li>
 			<button>トレイからとる</button>
@@ -50,6 +49,12 @@ $_SESSION['vending_machine'] = new VendingMachine();
 					}
 				}).done(function(res) {
 					$('#response').text(res);
+				});
+			});
+
+			$('#pay-back-button').on('click', function() {
+				$.ajax('api/pay_back.php', {
+					type: 'GET'
 				});
 			});
 		});
