@@ -13,12 +13,12 @@ $_SESSION['vending_machine'] = new VendingMachine();
 <head>
 	<meta charset="utf-8">
 	<title>きなこもち</title>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 </head>
 <body>
 	<ul>
 		<li>
-			<button>お金を入れる</button>
-			<select>
+			<select id="money-amount">
 				<option value="1">1</option>
 				<option value="5">5</option>
 				<option value="10">10</option>
@@ -29,6 +29,7 @@ $_SESSION['vending_machine'] = new VendingMachine();
 				<option value="5000">5000</option>
 				<option value="10000">10000</option>
 			</select>円
+			<button id="put-money-button">お金を入れる</button>
 		</li>
 		<li>
 			<button>払い戻す</button>
@@ -38,8 +39,20 @@ $_SESSION['vending_machine'] = new VendingMachine();
 		</li>
 	</ul>
 	レスポンス表示ボックス<br>
-	<textarea>
-
-	</textarea>
+	<textarea id="response"></textarea>
+	<script>
+		$(function() {
+			$('#put-money-button').on('click', function() {
+				$.ajax('api/put_money.php', {
+					type: 'POST',
+					data: {
+						amount: $('#money-amount').val()
+					}
+				}).done(function(res) {
+					$('#response').text(res);
+				});
+			});
+		});
+	</script>
 </body>
 </html>
