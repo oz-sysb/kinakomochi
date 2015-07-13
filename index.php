@@ -1,3 +1,13 @@
+<?php
+
+require_once('app/VendingMachine.php');
+
+
+session_start();
+
+$_SESSION['vending_machine'] = new VendingMachine();
+
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
