@@ -2,16 +2,16 @@
 class MoneyCheck
 {
 	/**
-	 * 許可されている金額
+	 * 扱えるお金
 	 */
 	private static $_valid_money = array(10, 50, 100, 500, 1000);
 
 	/**
-	 * 許可されている金額かを確認する
+	 * 扱えるお金かを確認する
 	 *
 	 * @param integer $amount 金額
 	 *
-	 * @return boolean
+	 * @return boolean 扱えるお金かどうか
 	 */
 	public function validate_money($amount)
 	{
