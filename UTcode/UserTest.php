@@ -29,15 +29,14 @@ class UserTest extends PHPUnit_Framework_TestCase
 		echo "voidなので今なにもできん1\n";
 	}
 
-	public function test_get_money()
+	public function test_pay_back()
 	{
-		$this->object->get_money();
-		echo "voidなので今なにもできん2\n";
+		$this->assertNull($this->object->pay_back());
+
 	}
 
 	public function test_get_money_from_tray()
 	{
-		$this->object->get_money_from_tray();
-		echo "voidなので今なにもできん3\n";
+		$this->assertEquals(0,$this->object->get_money_from_tray());
 	}
 }
