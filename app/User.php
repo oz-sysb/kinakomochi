@@ -7,6 +7,7 @@ class User
 {
 	/**
 	 * 投入する（ユーザーの操作）
+	 * 引数の$moneyはVendingMoneyで使えるお金かチェックをしてもらうからここで引数の確認はいらない
 	 *
 	 * @param integer $money 投入するお金
 	 *
@@ -15,6 +16,9 @@ class User
 	public function put_money($money = null)
 	{
 		//VendingMachineのtake_moneyにそのままお金を渡して、戻り値を見ない（トレイに保管されているお金を取り出す時は別の処理を動く）
+		$vendingmachine = new VendingMachine();
+		$vendingmachine->take_money($money);
+
 	}
 
 	/**
@@ -26,11 +30,13 @@ class User
 	{
 		//VendingMachineのreturn_all_money()を呼び出して、
 		$vendingmachine = new VendingMachine();
-		return $vendingmachine->take_money();
+		//下記の関数はVendingmachineクラスで未実装
+		return $vendingmachine->return_all_money();
 	}
 
 	/**
 	 * お金を受け取るトレイから出す（ユーザーの操作）
+	 * この関数が動作するのはput_moneyが動いてから
 	 *
 	 * @return integer|null
 	 */
