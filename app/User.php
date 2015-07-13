@@ -26,7 +26,7 @@ class User
 	 *
 	 * @return integer|null
 	 */
-	public function pay_buck()
+	public function pay_back()
 	{
 		//VendingMachineのreturn_all_money()を呼び出して、
 		$vending_machine = new VendingMachine();
