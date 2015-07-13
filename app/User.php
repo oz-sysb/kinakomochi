@@ -35,6 +35,7 @@ class User
 	 */
 	public function get_money_from_tray()
 	{
-		//トレイにあるお金を返す
+		$tray = new Tray();
+		return $tray->get_amount();
 	}
 }
