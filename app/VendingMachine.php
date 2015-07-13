@@ -51,7 +51,7 @@ class VendingMachine
 	/**
 	 * 全額を払い戻す
 	 *
-	 * @return none
+	 * @return void
 	 */
 	public function pay_back()
 	{
