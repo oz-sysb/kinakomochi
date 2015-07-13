@@ -7,7 +7,18 @@
 <body>
 	<ul>
 		<li>
-			<button>お金を入れる</button> <input type="text">円
+			<button>お金を入れる</button>
+			<select>
+				<option value="1">1</option>
+				<option value="5">5</option>
+				<option value="10">10</option>
+				<option value="50">50</option>
+				<option value="100">100</option>
+				<option value="500">500</option>
+				<option value="1000">1000</option>
+				<option value="5000">5000</option>
+				<option value="10000">10000</option>
+			</select>円
 		</li>
 		<li>
 			<button>払い戻す</button>
