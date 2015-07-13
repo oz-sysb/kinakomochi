@@ -34,11 +34,12 @@ $_SESSION['vending_machine'] = new VendingMachine();
 			<button id="pay-back-button">払い戻す</button>
 		</li>
 		<li>
-			<button>トレイからとる</button>
+			<button id="tray-button">トレイからとる</button>
 		</li>
 	</ul>
 	レスポンス表示ボックス<br>
-	<textarea id="response"></textarea>
+	amount: <input type="text" id="amount"><br>
+	tray: <input type="text" id="tray"><br>
 	<script>
 		$(function() {
 			$('#put-money-button').on('click', function() {
@@ -48,13 +49,21 @@ $_SESSION['vending_machine'] = new VendingMachine();
 						amount: $('#money-amount').val()
 					}
 				}).done(function(res) {
-					$('#response').text(res);
+					$('#amount').val(res);
 				});
 			});
 
 			$('#pay-back-button').on('click', function() {
 				$.ajax('api/pay_back.php', {
 					type: 'GET'
+				});
+			});
+
+			$('#tray-button').on('click', function() {
+				$.ajax('api/get_money_from_tray.php', {
+					type: 'GET'
+				}).done(function(res) {
+					$('#tray').val(res);
 				});
 			});
 		});
