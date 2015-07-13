@@ -20,7 +20,7 @@ class Tray
    */
   public function add_amount($amount)
   {
-    if(intval($amount))
+    if(is_int($amount))
     {
       $this->_amount += $amount;
       return true;
