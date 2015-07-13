@@ -1,40 +1,50 @@
 <?php
+
+/**
+ * 釣り銭トレイクラス
+ */
 class Tray
 {
-  /**
-   * 数
-   */
-  private $_amount;
+	/**
+	 * 釣り銭トレイ内金額の合計
+	 */
+	private $_amount;
 
-  public function __construct()
-  {
-    $this->_amount = 0;
-  }
+	/**
+	 * コンストラクタ
+	 */
+	public function __construct()
+	{
+		$this->_amount = 0;
+	}
 
-  /**
-   * 加算する
-   *
-   * @param integer $amount 数
-   *
-   * @return boolean 投入に成功したか否か
-   */
-  public function add_amount($amount)
-  {
-    if(is_int($amount))
-    {
-      $this->_amount += $amount;
-      return true;
-    }
-    return false;
-  }
+	/**
+	 * 釣り銭トレイ内金額の合計への加算
+	 *
+	 * 指定された金額を加算する
+	 * 指定された金額がintでない場合は加算しない
+	 *
+	 * @param integer $amount 金額
+	 *
+	 * @return boolean 加算できたか否か
+	 */
+	public function add_amount($amount)
+	{
+		if(is_int($amount))
+		{
+			$this->_amount += $amount;
+			return true;
+		}
+		return false;
+	}
 
-  /**
-   * 取得する
-   *
-   * @return integer
-   */
-  public function get_amount()
-  {
-    return $this->_amount;
-  }
+	/**
+	 * 釣り銭トレイ内金額の合計取得
+	 *
+	 * @return integer 釣り銭トレイ内金額の合計
+	 */
+	public function get_amount()
+	{
+		return $this->_amount;
+	}
 }
