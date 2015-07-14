@@ -31,7 +31,7 @@ class UserTest extends PHPUnit_Framework_TestCase
 
 	public function test_pay_back()
 	{
-		$this->assertNull($this->object->pay_back());
+		$this->assertTrue($this->object->pay_back());
 
 	}
 
