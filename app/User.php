@@ -11,14 +11,13 @@ class User
 	 *
 	 * @param integer $money 投入するお金
 	 *
-	 * @return void
+	 * @return integer 投入金額の総計
 	 */
 	public function put_money($money = null)
 	{
-		//VendingMachineのtake_moneyにそのままお金を渡して、戻り値を見ない（トレイに保管されているお金を取り出す時は別の処理を動く）
+		//VendingMachineのtake_moneyにそのままお金を渡して、戻り値を判定しないで返す（トレイに保管されているお金を取り出す時は別の処理を動く）
 		$vending_machine = new VendingMachine();
-		$vending_machine->take_money($money);
-
+		return $vending_machine->take_money($money);
 	}
 
 	/**
@@ -28,9 +27,7 @@ class User
 	 */
 	public function pay_back()
 	{
-		//VendingMachineのreturn_all_money()を呼び出して、
 		$vending_machine = new VendingMachine();
-		//下記の関数はVendingmachineクラスで未実装
 		return $vending_machine->pay_back();
 	}
 

@@ -23,10 +23,13 @@ class UserTest extends PHPUnit_Framework_TestCase
 		unset($this->object);
 	}
 
-	public function test_put_money()
+	/**
+	 * 値の判定はVendingMachineのtake_moneyで行われるので、VendingMachineのtake_moneyのテストでその部分をカバーする
+	 * ここではあくまでも基本的な正常動作を確認したい
+	 */
+	public function test_put_money_100円を投入する()
 	{
-		$this->object->put_money(10);
-		echo "voidなので今なにもできん1\n";
+		$this->assertEquals(100, $this->object->put_money(100));
 	}
 
 	public function test_pay_back()
