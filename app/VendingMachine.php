@@ -42,12 +42,9 @@ class VendingMachine
 		$money_check = new MoneyCheck();
 		if($money_check->validate_money($amount))
 		{
-			$this->_total += $amount;
+			return $this->_total += $amount;
 		}
-		else
-		{
-			$this->tray->add_amount($amount);
-		}
+		$this->tray->add_amount($amount);
 		return $this->_total;
 	}
 
