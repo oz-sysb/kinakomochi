@@ -28,7 +28,7 @@ class Tray
 	 *
 	 * @return boolean 加算できたか否か
 	 */
-	public function add_amount($amount)
+	public function compute_amount($amount)
 	{
 		if(is_int($amount))
 		{
