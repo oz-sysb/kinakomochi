@@ -103,12 +103,9 @@ class VendingMachineTest extends PHPUnit_Framework_TestCase
 		$this->assertequals(0, $this->object->take_money(array(10, 100)));
 	}
 
-	/**
-	 * pay_back()のUnitTest
-	 */
 	public function test_pay_back_初期状態()
 	{
-		echo "voidなので今なにもできん1\n";
+		$this->assertTrue($this->object->pay_back());
 	}
 
 

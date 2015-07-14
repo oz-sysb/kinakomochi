@@ -52,13 +52,18 @@ class VendingMachine
 	 * 払い戻し
 	 *
 	 * 投入金額の総計を釣り銭トレイに返却し、
-	 * 投入金額の総計を0に設定する
+	 * 返却が成功したら、投入金額の総計を0に設定する
+	 * 成功しなかったら何もしない
 	 *
-	 * @return void
+	 * @return boolean 払い戻しと金額リセットが成功したか
 	 */
 	public function pay_back()
 	{
-		$this->tray->add_amount($this->_total);
-		$this->_total = 0;
+		if(TRUE === $this->tray->add_amount($this->_total))
+		{
+			$this->_total = 0;
+			return TRUE;
+		}
+		return FALSE;
 	}
 }
