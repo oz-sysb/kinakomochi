@@ -44,7 +44,7 @@ class VendingMachine
 		{
 			return $this->_total += $amount;
 		}
-		$this->tray->add_amount($amount);
+		$this->tray->compute_amount($amount);
 		return $this->_total;
 	}
 
@@ -59,7 +59,7 @@ class VendingMachine
 	 */
 	public function pay_back()
 	{
-		if(TRUE === $this->tray->add_amount($this->_total))
+		if(TRUE === $this->tray->compute_amount($this->_total))
 		{
 			$this->_total = 0;
 			return TRUE;
