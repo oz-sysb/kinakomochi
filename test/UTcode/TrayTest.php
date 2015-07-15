@@ -1,6 +1,6 @@
 <?php
 
-require_once 'app/Tray.php';
+require_once 'src/app/Tray.php';
 
 class TrayTest extends PHPUnit_Framework_TestCase
 {
