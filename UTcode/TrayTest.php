@@ -1,7 +1,6 @@
 <?php
-#
-require_once 'PHPUnit/Autoload.php';
-require_once '../app/Tray.php';
+
+require_once 'app/Tray.php';
 
 class TrayTest extends PHPUnit_Framework_TestCase
 {

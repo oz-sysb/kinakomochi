@@ -1,7 +1,6 @@
 <?php
 
-require_once 'PHPUnit/Autoload.php';
-require_once '../app/VendingMachine.php';
+require_once 'app/VendingMachine.php';
 
 /**
  * VendingMachineクラスのUnitTest
