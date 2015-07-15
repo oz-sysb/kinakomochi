@@ -16,26 +16,29 @@ class MoneyCheckTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
+	 * @dataProvider money_list
 	 * @test
 	 */
-	public function test_validate_money_正常系()
+	public function test_validate_money($money, $expected)
 	{
-		$this->assertTrue($this->money_check->validate_money(10));
-		$this->assertTrue($this->money_check->validate_money(50));
-		$this->assertTrue($this->money_check->validate_money(100));
-		$this->assertTrue($this->money_check->validate_money(500));
-		$this->assertTrue($this->money_check->validate_money(1000));
+		$result = $this->money_check->validate_money($money);
+		$this->assertEquals($result, $expected);
 	}
 
-	/**
-	 * @test
-	 */
-	public function test_validate_money_異常系()
+	public function money_list()
 	{
-		$this->assertFalse($this->money_check->validate_money(1));
-		$this->assertFalse($this->money_check->validate_money(5));
-		$this->assertFalse($this->money_check->validate_money(2000));
-		$this->assertFalse($this->money_check->validate_money(5000));
-		$this->assertFalse($this->money_check->validate_money(10000));
+		return [
+					[1, false],
+					[5, false],
+					[10, true],
+					[50, true],
+					[100, true],
+					[500, true],
+					[1000, true],
+					[2000, false],
+					[5000, false],
+					[10000, false]
+				];
+
 	}
 }
