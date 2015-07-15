@@ -1,7 +1,6 @@
 <?php
-#
-require_once 'PHPUnit/Autoload.php';
-require_once '../app/MoneyCheck.php';
+
+require_once 'app/MoneyCheck.php';
 
 class MoneyCheckTest extends PHPUnit_Framework_TestCase
 {
