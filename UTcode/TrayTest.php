@@ -4,49 +4,60 @@ require_once 'app/Tray.php';
 
 class TrayTest extends PHPUnit_Framework_TestCase
 {
-	protected $object;
+	/** @var Tray */
+	private $tray;
 
+	/**
+	 * @setup
+	 */
 	public function setUp()
 	{
-		$this->object = new Tray();
+		$this->tray = new Tray();
 	}
 
 	/**
-	 * teardown
+	 * @test
 	 */
-	public function tearDown()
-	{
-		unset($this->object);
-	}
-
 	public function test_compute_amountを呼ぶINTを渡す()
 	{
-		$this->assertTrue($this->object->compute_amount(100));
-		$this->assertTrue($this->object->compute_amount(100));
+		$this->assertTrue($this->tray->compute_amount(100));
+		$this->assertTrue($this->tray->compute_amount(100));
 	}
 
+	/**
+	 * @test
+	 */
 	public function test_compute_amountを呼ぶ小数値を渡す()
 	{
-		$this->assertFalse($this->object->compute_amount(1.1));
+		$this->assertFalse($this->tray->compute_amount(1.1));
 	}
 
+	/**
+	 * @test
+	 */
 	public function test_compute_amountを呼ぶ配列を渡す()
 	{
-		$this->assertFalse($this->object->compute_amount(array(1,1)));
-		$this->assertFalse($this->object->compute_amount(array("a"=>1)));
+		$this->assertFalse($this->tray->compute_amount(array(1,1)));
+		$this->assertFalse($this->tray->compute_amount(array("a"=>1)));
 	}
 
+	/**
+	 * @test
+	 */
 	public function test_get_amountを呼ぶ()
 	{
-		$this->object->compute_amount(100);
-		$this->object->compute_amount(100);
-		$this->assertEquals(200, $this->object->get_amount());
+		$this->tray->compute_amount(100);
+		$this->tray->compute_amount(100);
+		$this->assertEquals(200, $this->tray->get_amount());
 	}
 
+	/**
+	 * @test
+	 */
 	public function test_get_amountを呼ぶ減算パターン()
 	{
-		$this->object->compute_amount(100);
-		$this->object->compute_amount(-100);
-		$this->assertEquals(0, $this->object->get_amount());
+		$this->tray->compute_amount(100);
+		$this->tray->compute_amount(-100);
+		$this->assertEquals(0, $this->tray->get_amount());
 	}
 }

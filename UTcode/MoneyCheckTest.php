@@ -4,39 +4,38 @@ require_once 'app/MoneyCheck.php';
 
 class MoneyCheckTest extends PHPUnit_Framework_TestCase
 {
-	protected $object;
+	/** @var MoneyCheck */
+	private $money_check;
 
 	/**
-	 * setup
+	 * @setup
 	 */
 	public function setUp()
 	{
-		$this->object = new MoneyCheck();
+		$this->money_check = new MoneyCheck();
 	}
 
 	/**
-	 * teardown
+	 * @test
 	 */
-	public function tearDown()
-	{
-		unset($this->object);
-	}
-
 	public function test_validate_money_正常系()
 	{
-		$this->assertTrue($this->object->validate_money(10));
-		$this->assertTrue($this->object->validate_money(50));
-		$this->assertTrue($this->object->validate_money(100));
-		$this->assertTrue($this->object->validate_money(500));
-		$this->assertTrue($this->object->validate_money(1000));
+		$this->assertTrue($this->money_check->validate_money(10));
+		$this->assertTrue($this->money_check->validate_money(50));
+		$this->assertTrue($this->money_check->validate_money(100));
+		$this->assertTrue($this->money_check->validate_money(500));
+		$this->assertTrue($this->money_check->validate_money(1000));
 	}
 
+	/**
+	 * @test
+	 */
 	public function test_validate_money_異常系()
 	{
-		$this->assertFalse($this->object->validate_money(1));
-		$this->assertFalse($this->object->validate_money(5));
-		$this->assertFalse($this->object->validate_money(2000));
-		$this->assertFalse($this->object->validate_money(5000));
-		$this->assertFalse($this->object->validate_money(10000));
+		$this->assertFalse($this->money_check->validate_money(1));
+		$this->assertFalse($this->money_check->validate_money(5));
+		$this->assertFalse($this->money_check->validate_money(2000));
+		$this->assertFalse($this->money_check->validate_money(5000));
+		$this->assertFalse($this->money_check->validate_money(10000));
 	}
 }
