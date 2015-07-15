@@ -14,7 +14,7 @@
 
     <testsuites>
         <testsuite name="Kinakomochi">
-            <directory>UTcode/</directory>
+            <directory>test/UTcode/</directory>
         </testsuite>
     </testsuites>
 

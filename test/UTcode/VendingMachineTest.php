@@ -1,6 +1,6 @@
 <?php
 
-require_once 'app/VendingMachine.php';
+require_once 'src/app/VendingMachine.php';
 
 /**
  * VendingMachineクラスのUnitTest
