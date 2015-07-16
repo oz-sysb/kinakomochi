@@ -16,15 +16,22 @@ class MoneyCheckTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @dataProvider money_list
+	 * 正しいお金だけOKにする
+	 *
 	 * @test
+	 * @dataProvider money_list
+	 * @@aram $money    integer お金
+	 * @param $expected boolean 期待結果
 	 */
-	public function test_validate_money($money, $expected)
+	public function 正しいお金だけOKにする($money, $expected)
 	{
 		$result = $this->money_check->validate_money($money);
 		$this->assertEquals($result, $expected);
 	}
 
+	/**
+	 * @return array
+	 */
 	public function money_list()
 	{
 		return [
@@ -39,6 +46,5 @@ class MoneyCheckTest extends PHPUnit_Framework_TestCase
 					[5000, false],
 					[10000, false]
 				];
-
 	}
 }

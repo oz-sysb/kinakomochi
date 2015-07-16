@@ -7,7 +7,9 @@ require_once 'src/app/VendingMachine.php';
  */
 class VendingMachineTest extends PHPUnit_Framework_TestCase
 {
-	/** @var VendingMachine */
+	/**
+	 * @var VendingMachine
+	 */
 	private $vending_machine;
 
 	/**
@@ -19,82 +21,77 @@ class VendingMachineTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
+	 * なにかを1回投入する。数値は金額のつもり。
+	 *
 	 * @test
+	 * @dataProvider insert_list
+	 * @param $inserted int 投入されるもの
+	 * @param $expected int 期待結果
 	 */
-	public function test_take_money_10円を入れる()
+	public function なにかを1回投入する($inserted, $expected)
 	{
-		$this->assertequals(10, $this->vending_machine->take_money(10));
+		$this->assertequals($expected, $this->vending_machine->take_money($inserted));
 	}
 
-	public function test_take_money_50円を入れる()
+	/**
+	 * @return array
+	 */
+	public function insert_list()
 	{
-		$this->assertequals(50, $this->vending_machine->take_money(50));
+		// 投入するもの, 期待結果
+		return [
+			[-1, 0],
+			[0, 0],
+			[0.5, 0],
+			[1, 0],
+			[5, 0],
+			[10, 10],
+			[50, 50],
+			[100, 100],
+			[500, 500],
+			[1000, 1000],
+			[2000, 0],
+			[5000, 0],
+			[10000, 0],
+			[array(10,100), 0],
+			["はぴたす", 0],
+		];
 	}
 
-	public function test_take_money_100円を入れる()
+	/**
+	 * なにかを2回投入する。数値は金額のつもり。
+	 *
+	 * @test
+	 * @dataProvider insert_twice_list
+	 * @param $inserted1 int 1回目に投入するもの
+	 * @param $expected1 int 1回目投入の期待結果
+	 * @param $inserted2 int 2回目に投入するもの
+	 * @param $expected2 int 2回目投入の期待結果
+	 */
+	public function なにかを2回投入する($inserted1, $expected1, $inserted2, $expected2)
 	{
-		$this->assertequals(100, $this->vending_machine->take_money(100));
+		$this->assertequals($expected1, $this->vending_machine->take_money($inserted1));
+		$this->assertequals($expected2, $this->vending_machine->take_money($inserted2));
 	}
 
-	public function test_take_money_500円を入れる()
+	/**
+	 * @return array
+	 */
+	public function insert_twice_list()
 	{
-		$this->assertequals(500, $this->vending_machine->take_money(500));
+		// 1回目に投入するもの、1回目投入の期待結果、2回目に投入するもの、2回目投入の期待結果
+		return [
+			[10, 10, 100, 110],
+			[10, 10, 1, 10],
+			[1, 0, 10, 10],
+		];
 	}
 
-	public function test_take_money_1000円を入れる()
-	{
-		$this->assertequals(1000, $this->vending_machine->take_money(1000));
-	}
-
-	public function test_take_money_1円を入れる()
-	{
-		$this->assertequals(0, $this->vending_machine->take_money(1));
-	}
-
-	public function test_take_money_5円を入れる()
-	{
-		$this->assertequals(0, $this->vending_machine->take_money(5));
-	}
-
-	public function test_take_money_2000円を入れる()
-	{
-		$this->assertequals(0, $this->vending_machine->take_money(2000));
-	}
-
-	public function test_take_money_5000円を入れる()
-	{
-		$this->assertequals(0, $this->vending_machine->take_money(5000));
-	}
-
-	public function test_take_money_10000円を入れる()
-	{
-		$this->assertequals(0, $this->vending_machine->take_money(10000));
-	}
-
-	public function test_take_money_10円と100円を入れる()
-	{
-		$this->assertequals(10, $this->vending_machine->take_money(10));
-		$this->assertequals(110, $this->vending_machine->take_money(100));
-	}
-
-	public function test_take_money_10円と1円を入れる()
-	{
-		$this->assertequals(10, $this->vending_machine->take_money(10));
-		$this->assertequals(10, $this->vending_machine->take_money(1));
-	}
-
-	public function test_take_money_1円と10円を入れる()
-	{
-		$this->assertequals(0, $this->vending_machine->take_money(1));
-		$this->assertequals(10, $this->vending_machine->take_money(10));
-	}
-
-	public function test_take_money_10円と100円を一緒に入れる()
-	{
-		$this->assertequals(0, $this->vending_machine->take_money(array(10, 100)));
-	}
-
-	public function test_pay_back_初期状態()
+	/**
+	 * @test
+	 * @fixme pay_back()がtrueしか返せない
+	 */
+	public function 払い戻す()
 	{
 		$this->assertTrue($this->vending_machine->pay_back());
 	}

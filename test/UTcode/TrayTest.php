@@ -4,7 +4,9 @@ require_once 'src/app/Tray.php';
 
 class TrayTest extends PHPUnit_Framework_TestCase
 {
-	/** @var Tray */
+	/**
+	 * @var Tray
+	 */
 	private $tray;
 
 	/**
@@ -16,48 +18,58 @@ class TrayTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
+	 * 釣り銭トレイ内に足す
+	 *
 	 * @test
+	 * @dataProvider add_list
+	 * @param $add      integer 足すもの
+	 * @param $expected boolean 期待結果
 	 */
-	public function test_compute_amountを呼ぶINTを渡す()
+	public function 釣り銭トレイ内に足す($add, $expected)
 	{
-		$this->assertTrue($this->tray->compute_amount(100));
-		$this->assertTrue($this->tray->compute_amount(100));
+		$this->assertEquals($expected, $this->tray->compute_amount($add));
 	}
 
 	/**
-	 * @test
+	 * @return array
 	 */
-	public function test_compute_amountを呼ぶ小数値を渡す()
+	public function add_list()
 	{
-		$this->assertFalse($this->tray->compute_amount(1.1));
+		// 足すもの, 期待結果
+		return [
+			[100, true],
+			[1.1, false],
+			[array(1,1), false],
+			[array("a"=>1), false],
+
+		];
 	}
 
 	/**
+	 * 釣り銭トレイにあるお金の確認
+	 *
 	 * @test
+	 * @dataProvider amount_change_list
+	 * @param $refund1 integer 1回目の返却金額
+	 * @param $refund2 integer 2回目の返却金額
+	 * @param $change  integer 現在の釣り銭
 	 */
-	public function test_compute_amountを呼ぶ配列を渡す()
+	public function 釣り銭トレイにあるお金の確認($refund1, $refund2, $change)
 	{
-		$this->assertFalse($this->tray->compute_amount(array(1,1)));
-		$this->assertFalse($this->tray->compute_amount(array("a"=>1)));
+		$this->tray->compute_amount($refund1);
+		$this->tray->compute_amount($refund2);
+		$this->assertEquals($change, $this->tray->get_amount());
 	}
 
 	/**
-	 * @test
+	 * @return array
 	 */
-	public function test_get_amountを呼ぶ()
+	public function amount_change_list()
 	{
-		$this->tray->compute_amount(100);
-		$this->tray->compute_amount(100);
-		$this->assertEquals(200, $this->tray->get_amount());
-	}
-
-	/**
-	 * @test
-	 */
-	public function test_get_amountを呼ぶ減算パターン()
-	{
-		$this->tray->compute_amount(100);
-		$this->tray->compute_amount(-100);
-		$this->assertEquals(0, $this->tray->get_amount());
+		// 1回目の返却金額、2回目の返却金額、現在の釣り銭
+		return [
+			[100, 100, 200],
+			[100, -100, 0],
+		];
 	}
 }
