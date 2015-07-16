@@ -89,11 +89,10 @@ class VendingMachineTest extends PHPUnit_Framework_TestCase
 
 	/**
 	 * @test
-	 * @fixme pay_back()がtrueしか返せない
 	 */
 	public function 払い戻す()
 	{
-		$this->assertTrue($this->vending_machine->pay_back());
+		$this->assertEquals(0, $this->vending_machine->pay_back());
 	}
 
 
