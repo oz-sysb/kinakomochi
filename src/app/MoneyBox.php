@@ -1,14 +1,43 @@
 <?php
 class MoneyBox
 {
-	//総計金額 intger
+	/**
+	 * 総計金額
+	 *
+	 * @var integer
+	 */
+	private $_total;
 
-	//__constractに総計金額の初期化をもたせる
+	/**
+	 * コンストラクタ
+	 * @return void
+	 */
+	public function __constract()
+	{
+		$this->_total = 0;
+	}
 
-	//function お金をもらう intger public
-	//vendingmachineから、チェックの通った投入金額お金もらう
+	/**
+	 * 投入金額を加算する
+	 *
+	 * @param integer $amount 投入金額
+	 * @return integer
+	 */
+	public function add_total($amount)
+	{
+		$this->_total += $amount;
+		return $this->_total;
+	}
 
-
-	//function お金をあげる intger pubiic
-	//総計金額をすべてかえる（レバー引かれたとき）
-	//総計を０にする
+	/**
+	 * 全額渡す
+	 *
+	 * @return integer
+	 */
+	public function return_all()
+	{
+		$total = $this->_total;
+		$this->_total = 0;
+		return $total;
+	}
+}
