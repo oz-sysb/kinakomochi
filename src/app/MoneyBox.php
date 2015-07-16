@@ -12,7 +12,7 @@ class MoneyBox
 	 * コンストラクタ
 	 * @return void
 	 */
-	public function __constract()
+	public function __construct()
 	{
 		$this->_total = 0;
 	}
