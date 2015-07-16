@@ -41,10 +41,9 @@ class VendingMachineTest extends PHPUnit_Framework_TestCase
 		// 投入するもの, 期待結果
 		return [
 			[-1, 0],
-			[0,	0],
+			[0, 0],
 			[0.5, 0],
-			[1,	0],
-			[1,	0],
+			[1, 0],
 			[5, 0],
 			[10, 10],
 			[50, 50],
