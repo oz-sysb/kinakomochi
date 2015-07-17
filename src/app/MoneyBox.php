@@ -34,7 +34,7 @@ class MoneyBox
 	 *
 	 * @return integer
 	 */
-	public function get_total_amount()
+	public function get_total()
 	{
 		return $this->_total;
 	}
@@ -42,10 +42,11 @@ class MoneyBox
 	/**
 	 * totalを初期化する
 	 *
-	 * @return void
+	 * @return integer
 	 */
 	public function total_clear()
 	{
 		$this->_total = 0;
+		return $this->_total;
 	}
 }
