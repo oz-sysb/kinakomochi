@@ -1,5 +1,7 @@
 <?php
-
+require_once('Moneybox.php');
+require_once('Tray.php');
+require_once('Moneycheck.php');
 /**
  * 自動販売機クラス
  */
@@ -9,7 +11,7 @@ class VendingMachine
 	 * お金管理
 	 * @var MoneyBox
 	 */
-	private $_money_box;
+	public $_money_box;
 
 	/**
 	 * 釣り銭トレイ
@@ -22,10 +24,8 @@ class VendingMachine
 	 */
 	public function __construct()
 	{
-		$this->_total = 0;
 		$this->_money_box = new MoneyBox();
-
-		$this->tray  = new Tray();
+		$this->tray = new Tray();
 	}
 
 	/**
