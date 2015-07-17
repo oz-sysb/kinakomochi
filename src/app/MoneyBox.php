@@ -14,7 +14,7 @@ class MoneyBox
 	 */
 	public function __construct()
 	{
-		$this->_total = 0;
+		$this->total_clear();
 	}
 
 	/**
@@ -30,14 +30,22 @@ class MoneyBox
 	}
 
 	/**
-	 * 全額渡す
+	 * 投入された金額の総計を返す
 	 *
 	 * @return integer
 	 */
-	public function return_all()
+	public function get_total_amount()
 	{
-		$total = $this->_total;
+		return $this->_total;
+	}
+
+	/**
+	 * totalを初期化する
+	 *
+	 * @return void
+	 */
+	public function total_clear()
+	{
 		$this->_total = 0;
-		return $total;
 	}
 }
