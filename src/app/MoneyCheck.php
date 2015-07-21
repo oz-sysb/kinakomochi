@@ -1,23 +1,4 @@
 <?php
-/**
- * PHP version 5
- *
- * @category PHP
- * @package  VOID
- * @author   Shunsuke Sakuma <s-sakuma@oz-vision.co.jp>
- * @license  BSD Licence
- * @link     http://github.com/oz-sysb/kinakomochi
- */
-
-/**
- * お金管理クラス
- *
- * @category PHP
- * @package  VOID
- * @author   Shunsuke Sakuma <s-sakuma@oz-vision.co.jp>
- * @license  BSD Licence
- * @link     http://github.com/oz-sysb/kinakomochi
- */
 class MoneyCheck
 {
     /**
@@ -32,7 +13,7 @@ class MoneyCheck
      *
      * @return boolean 扱えるお金かどうか
      */
-    public function validateMoney($amount)
+    public function validate_money($amount)
     {
         return in_array($amount, self::$_valid_money, true);
     }
