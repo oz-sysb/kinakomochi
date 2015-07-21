@@ -1,41 +1,41 @@
 <?php
 class juiceBox
 {
-	/**
-	 * ジュース情報
-	 * @var array
-	 */
-	private $_juice;
+    /**
+     * ジュース情報
+     * @var array
+     */
+    private $_juice;
 
-	/**
-	 * コンストラクタ
-	 */
-	public function __construct()
-	{
-		//ジュースの配列を持っている
-		$this->_juice = ['コーラ' => ["price" => 120, "number" => 5]];
-	}
+    /**
+     * コンストラクタ
+     */
+    public function __construct()
+    {
+        //ジュースの配列を持っている
+        $this->_juice = ['コーラ' => ["price" => 120, "number" => 5]];
+    }
 
-	/**
-	 * ジュースの情報を格納する
-	 * 現状ではこのメソッド呼ぶと初期状態が破棄されます。
-	 * @todo コンストラクタで格納するならこれ要らないんじゃの確認。
-	 *
-	 * @param  array $juice ジュース情報
-	 * @return void
-	 */
-	public function set_juice($juice)
-	{
-		$this->_juice = $juice;
-	}
+    /**
+     * ジュースの情報を格納する
+     * 現状ではこのメソッド呼ぶと初期状態が破棄されます。
+     * @todo コンストラクタで格納するならこれ要らないんじゃの確認。
+     *
+     * @param  array $juice ジュース情報
+     * @return void
+     */
+    public function set_juice($juice)
+    {
+        $this->_juice = $juice;
+    }
 
-	/**
-	 * ジュースの情報を返す
-	 *
-	 * @return array
-	 */
-	public function get_juice()
-	{
-		return $this->_juice;
-	}
+    /**
+     * ジュースの情報を返す
+     *
+     * @return array
+     */
+    public function get_juice()
+    {
+        return $this->_juice;
+    }
 }
