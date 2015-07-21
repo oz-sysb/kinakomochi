@@ -14,7 +14,7 @@ class MoneyBox
 	 */
 	public function __construct()
 	{
-		$this->total_clear();
+		$this->clear_total();
 	}
 
 	/**
@@ -44,7 +44,7 @@ class MoneyBox
 	 *
 	 * @return integer
 	 */
-	public function total_clear()
+	public function clear_total()
 	{
 		$this->_total = 0;
 		return $this->_total;

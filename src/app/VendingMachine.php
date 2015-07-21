@@ -60,7 +60,7 @@ class VendingMachine
 	public function pay_back()
 	{
 		$this->tray->compute_amount($this->_money_box->get_total());
-		$this->_money_box->total_clear();
+		$this->_money_box->clear_total();
 
 		return $this->tray->get_amount();
 	}
