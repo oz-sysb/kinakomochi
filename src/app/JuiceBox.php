@@ -13,7 +13,7 @@ class juiceBox
 	public function __construct()
 	{
 		//ジュースの配列を持っている
-		$this->_juice = array('コーラ' => array("price" => 120, "number" => 5));
+		$this->_juice = ['コーラ' => ["price" => 120, "number" => 5]];
 	}
 
 	/**

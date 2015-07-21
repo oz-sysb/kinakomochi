@@ -4,7 +4,7 @@ class MoneyCheck
 	/**
 	 * 扱えるお金
 	 */
-	private static $_valid_money = array(10, 50, 100, 500, 1000);
+	private static $_valid_money = [10, 50, 100, 500, 1000];
 
 	/**
 	 * 扱えるお金かを確認する
