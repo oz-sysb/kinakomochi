@@ -1,8 +1,28 @@
 <?php
-class juiceBox
+/**
+ * PHP version 5
+ *
+ * @category PHP
+ * @package  VOID
+ * @author   Shunsuke Sakuma <s-sakuma@oz-vision.co.jp>
+ * @license  BSD Licence
+ * @link     http://github.com/oz-sysb/kinakomochi
+ */
+
+/**
+ * ジュース管理クラス
+ *
+ * @category PHP
+ * @package  VOID
+ * @author   Shunsuke Sakuma <s-sakuma@oz-vision.co.jp>
+ * @license  BSD Licence
+ * @link     http://github.com/oz-sysb/kinakomochi
+ */
+class JuiceBox
 {
     /**
      * ジュース情報
+     *
      * @var array
      */
     private $_juice;
@@ -19,12 +39,14 @@ class juiceBox
     /**
      * ジュースの情報を格納する
      * 現状ではこのメソッド呼ぶと初期状態が破棄されます。
-     * @todo コンストラクタで格納するならこれ要らないんじゃの確認。
      *
-     * @param  array $juice ジュース情報
+     * @param array $juice ジュース情報
+     *
+     * @TODO コンストラクタで格納するならこれ要らないのでは。
+     *
      * @return void
      */
-    public function set_juice($juice)
+    public function setJuice($juice)
     {
         $this->_juice = $juice;
     }
@@ -34,7 +56,7 @@ class juiceBox
      *
      * @return array
      */
-    public function get_juice()
+    public function getJuice()
     {
         return $this->_juice;
     }
