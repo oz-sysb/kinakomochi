@@ -1,7 +1,7 @@
 <?php
-require_once('Moneybox.php');
+require_once('MoneyBox.php');
 require_once('Tray.php');
-require_once('Moneycheck.php');
+require_once('MoneyCheck.php');
 /**
  * 自動販売機クラス
  */
