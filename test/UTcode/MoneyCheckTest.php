@@ -1,50 +1,80 @@
 <?php
 
+/**
+ * PHP version 5.6
+ *
+ * @category VendingMachine
+ * @package  ValidatorTest
+ * @author   Sora Hashimoto <s-hashimoto@oz-vision.co.jp>
+ * @license  BSD Licence
+ * @link     http://github.com/oz-sysb/kinakomochi
+ */
+
 require_once 'src/app/MoneyCheck.php';
 
+/**
+ * Class MoneyCheckTest
+ *
+ * @category VendingMachine
+ * @package  ValidatorTest
+ * @author   Sora Hashimoto <s-hashimoto@oz-vision.co.jp>
+ * @license  BSD Licence
+ * @link     http://github.com/oz-sysb/kinakomochi
+ */
 class MoneyCheckTest extends PHPUnit_Framework_TestCase
 {
-	/** @var MoneyCheck */
-	private $money_check;
+    /**
+     * Target Object
+     *
+     * @var MoneyCheck
+     */
+    private $_moneyCheck;
 
-	/**
-	 * @setup
-	 */
-	public function setUp()
-	{
-		$this->money_check = new MoneyCheck();
-	}
+    /**
+     * SetUp for Unit Test
+     *
+     * @setup
+     * @return void
+     */
+    public function setUp()
+    {
+        $this->_moneyCheck = new MoneyCheck();
+    }
 
-	/**
-	 * 正しいお金だけOKにする
-	 *
-	 * @test
-	 * @dataProvider money_list
-	 * @@aram $money    integer お金
-	 * @param $expected boolean 期待結果
-	 */
-	public function 正しいお金だけOKにする($money, $expected)
-	{
-		$result = $this->money_check->validate_money($money);
-		$this->assertEquals($result, $expected);
-	}
+    /**
+     * Unit Test for validateMoney
+     *
+     * @param integer $money    お金
+     * @param boolean $expected 期待結果
+     *
+     * @test
+     * @dataProvider moneyValidator
+     * @return       void
+     */
+    public function validateMoneyTest($money, $expected)
+    {
+        $result = $this->_moneyCheck->validateMoney($money);
+        $this->assertEquals($result, $expected);
+    }
 
-	/**
-	 * @return array
-	 */
-	public function money_list()
-	{
-		return [
-					[1, false],
-					[5, false],
-					[10, true],
-					[50, true],
-					[100, true],
-					[500, true],
-					[1000, true],
-					[2000, false],
-					[5000, false],
-					[10000, false]
-				];
-	}
+    /**
+     * DataProvider
+     *
+     * @return array
+     */
+    public function moneyValidator()
+    {
+        return [
+            [1, false],
+            [5, false],
+            [10, true],
+            [50, true],
+            [100, true],
+            [500, true],
+            [1000, true],
+            [2000, false],
+            [5000, false],
+            [10000, false]
+        ];
+    }
 }
