@@ -1,13 +1,29 @@
 <?php
 /**
- * ここかなんー
+ * 自販機の大本のクラス
+ *
+ * PHP version 5
+ *
+ * @category PHP
+ * @package  VOID
+ * @author   Shunsuke Sakuma <s-sakuma@oz-vision.co.jp>
+ * @license  BSD Licence
+ * @link     http://github.com/oz-sysb/kinakomochi
  */
-require_once('MoneyBox.php');
-require_once('Tray.php');
-require_once('MoneyCheck.php');
+require_once 'MoneyBox.php';
+require_once 'Tray.php';
+require_once 'MoneyCheck.php';
+
 /**
  * 自動販売機クラス
+ *
+ * @category PHP
+ * @package  VOID
+ * @author   Shunsuke Sakuma <s-sakuma@oz-vision.co.jp>
+ * @license  BSD Licence
+ * @link     http://github.com/oz-sysb/kinakomochi
  */
+
 class VendingMachine
 {
     /**
@@ -41,12 +57,11 @@ class VendingMachine
      *
      * @return integer 投入金額の総計
      */
-    public function take_money($amount = null)
+    public function takeMoney($amount = null)
     {
         $money_check = new MoneyCheck();
-        if($money_check->validate_money($amount))
-        {
-            return($this->_money_box->add_total($amount));
+        if ($money_check->validate_money($amount)) {
+            return ($this->_money_box->add_total($amount));
         }
         $this->tray->compute_amount($amount);
 
@@ -60,7 +75,7 @@ class VendingMachine
      *
      * @return integer 投入金額の総計 (0しかない想定)
      */
-    public function pay_back()
+    public function payBack()
     {
         $this->tray->compute_amount($this->_money_box->get_total());
         $this->_money_box->clear_total();
