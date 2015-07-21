@@ -5,7 +5,7 @@ require_once 'src/app/JuiceBox.php';
 class JuiceBoxTest extends PHPUnit_Framework_TestCase
 {
 	/**
-	 * @var Tray
+	 * @var JuiceBox
 	 */
 	private $_juice_box;
 
@@ -18,16 +18,27 @@ class JuiceBoxTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * 一回ジュース情報を渡す
+	 * 初期状態の確認
+	 *
+	 * @test
+	 * @fixme 初期値をテストコードが知っているダメな例だとは思う
+	 */
+	public function 初期状態の確認()
+	{
+		$this->assertequals(array('コーラ' => array("price" => 120, "number" => 5)), $this->_juice_box->get_juice());
+	}
+
+	/**
+	 * 登録後の確認
 	 *
 	 * @test
 	 * @dataProvider juice_list
-	 * @param $inserted int 送る情報
-	 * @param $expected int 期待結果
+	 * @param $juice array ジュース情報
 	 */
-	public function get_infomation_test($inserted, $expected)
+	public function set_juiceのテスト($juice)
 	{
-		$this->assertequals($expected, $this->_juice_box->get_infomation($inserted));
+		$this->_juice_box->set_juice($juice);
+		$this->assertequals($juice, $this->_juice_box->get_juice());
 	}
 
 	/**
@@ -36,8 +47,7 @@ class JuiceBoxTest extends PHPUnit_Framework_TestCase
 	public function juice_list()
 	{
 		return [
-					[array('soda'=>array("price"=>100, "number" => 2)),array('soda'=>array("price"=>100, "number" => 2))],
+					[array('レッドブル' => array("price" => 200, "number" => 2))],
 				];
 	}
-
 }

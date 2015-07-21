@@ -10,7 +10,6 @@ class MoneyBox
 
 	/**
 	 * コンストラクタ
-	 * @return void
 	 */
 	public function __construct()
 	{

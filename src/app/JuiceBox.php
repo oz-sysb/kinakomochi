@@ -3,6 +3,7 @@ class juiceBox
 {
 	/**
 	 * ジュース情報
+	 * @var array
 	 */
 	private $_juice;
 
@@ -12,27 +13,29 @@ class juiceBox
 	public function __construct()
 	{
 		//ジュースの配列を持っている
-		$this->_juice = array('coke'=>array("price"=>120, "number" => 5));
+		$this->_juice = array('コーラ' => array("price" => 120, "number" => 5));
 	}
 
 	/**
 	 * ジュースの情報を格納する
+	 * 現状ではこのメソッド呼ぶと初期状態が破棄されます。
+	 * @todo コンストラクタで格納するならこれ要らないんじゃの確認。
+	 *
 	 * @param  array $juice ジュース情報
-	 * @return array
+	 * @return void
 	 */
-	public function get_infomation($juice)
+	public function set_juice($juice)
 	{
-		$this->juice[] = $juice;
-		return $juice;
+		$this->_juice = $juice;
 	}
 
 	/**
 	 * ジュースの情報を返す
-	 * @param  string $juice_name ジュース名
+	 *
 	 * @return array
 	 */
-	public function return_infomation()
+	public function get_juice()
 	{
-		return $this->juice;
+		return $this->_juice;
 	}
 }
