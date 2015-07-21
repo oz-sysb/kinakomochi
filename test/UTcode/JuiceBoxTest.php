@@ -18,6 +18,17 @@ class JuiceBoxTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
+	 * 初期状態の確認
+	 *
+	 * @test
+	 * @fixme 初期値をテストコードが知っているダメな例だとは思う
+	 */
+	public function 初期状態の確認()
+	{
+		$this->assertequals(array('コーラ' => array("price" => 120, "number" => 5)), $this->_juice_box->get_juice());
+	}
+
+	/**
 	 * 一回ジュース情報を渡す
 	 *
 	 * @test
@@ -36,8 +47,8 @@ class JuiceBoxTest extends PHPUnit_Framework_TestCase
 	public function juice_list()
 	{
 		return [
-					[array('soda' => array("price" => 100, "number" => 2)),
-					 array('soda' => array("price" => 100, "number" => 2))],
+					[array('レッドブル' => array("price" => 200, "number" => 2)),
+					 array('レッドブル' => array("price" => 200, "number" => 2))],
 				];
 	}
 
