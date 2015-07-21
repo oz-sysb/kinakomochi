@@ -11,7 +11,7 @@ class VendingMachine
 	 * お金管理
 	 * @var MoneyBox
 	 */
-	public $_money_box;
+	private $_money_box;
 
 	/**
 	 * 釣り銭トレイ
@@ -46,8 +46,8 @@ class VendingMachine
 			return($this->_money_box->add_total($amount));
 		}
 		$this->tray->compute_amount($amount);
-		// @fixme これどう考えてもダメ getterが欲しい (裏ワザ利用中)
-		return ($this->_money_box->add_total(0));
+
+		return $this->_money_box->get_total();
 	}
 
 	/**
@@ -59,8 +59,9 @@ class VendingMachine
 	 */
 	public function pay_back()
 	{
-		$this->tray->compute_amount($this->_money_box->return_all());
-		// @fixme これどう考えてもダメ getterが欲しい (裏ワザ利用中)
-		return ($this->_money_box->add_total(0));
+		$this->tray->compute_amount($this->_money_box->get_total());
+		$this->_money_box->clear_total();
+
+		return $this->tray->get_amount();
 	}
 }

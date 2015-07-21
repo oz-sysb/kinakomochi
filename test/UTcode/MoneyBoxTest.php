@@ -46,20 +46,6 @@ class MoneyBoxTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @dataProvider total_list
-	 * @test
-	 */
-	public function test_return_all($money,$money2,$money3,$expected)
-	{
-		$this->money_box->add_total($money);
-		$this->money_box->add_total($money2);
-		$result = $this->money_box->add_total($money3);
-		$this->assertEquals($result, $expected);
-		$result = $this->money_box->return_all();
-		$this->assertEquals($result, $expected);
-	}
-
-	/**
 	 * お金リスト
 	 * @return array
 	 */
@@ -72,12 +58,4 @@ class MoneyBoxTest extends PHPUnit_Framework_TestCase
 				];
 	}
 
-	/**
-	 * @test
-	 */
-	public function test_return_all_zero()
-	{
-		$result = $this->money_box->return_all();
-		$this->assertEquals(0, $result);
-	}
 }
