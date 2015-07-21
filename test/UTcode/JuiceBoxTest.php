@@ -25,7 +25,7 @@ class JuiceBoxTest extends PHPUnit_Framework_TestCase
 	 */
 	public function 初期状態の確認()
 	{
-		$this->assertequals(['コーラ' => ["price" => 120, "number" => 5]], $this->_juice_box->get_juice());
+		$this->assertequals(['コーラ' => ["price" => 120, "number" => 5]], $this->_juice_box->getJuice());
 	}
 
 	/**
@@ -37,8 +37,8 @@ class JuiceBoxTest extends PHPUnit_Framework_TestCase
 	 */
 	public function set_juiceのテスト($juice)
 	{
-		$this->_juice_box->set_juice($juice);
-		$this->assertequals($juice, $this->_juice_box->get_juice());
+		$this->_juice_box->setJuice($juice);
+		$this->assertequals($juice, $this->_juice_box->getJuice());
 	}
 
 	/**

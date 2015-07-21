@@ -58,12 +58,12 @@ class VendingMachine
     public function takeMoney($amount = null)
     {
         $money_check = new MoneyCheck();
-        if ($money_check->validate_money($amount)) {
-            return ($this->_money_box->add_total($amount));
+        if ($money_check->validateMoney($amount)) {
+            return ($this->_money_box->addTotal($amount));
         }
         $this->tray->computeAmount($amount);
 
-        return $this->_money_box->get_total();
+        return $this->_money_box->getTotal();
     }
 
     /**
@@ -75,8 +75,8 @@ class VendingMachine
      */
     public function payBack()
     {
-        $this->tray->computeAmount($this->_money_box->get_total());
-        $this->_money_box->clear_total();
+        $this->tray->computeAmount($this->_money_box->getTotal());
+        $this->_money_box->clearTotal();
 
         return $this->tray->getAmount();
     }
