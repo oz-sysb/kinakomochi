@@ -1,4 +1,23 @@
 <?php
+/**
+ * PHP version 5
+ *
+ * @category PHP
+ * @package  VOID
+ * @author   Shunsuke Sakuma <s-sakuma@oz-vision.co.jp>
+ * @license  BSD Licence
+ * @link     http://github.com/oz-sysb/kinakomochi
+ */
+
+/**
+ * お金関係クラス
+ *
+ * @category PHP
+ * @package  VOID
+ * @author   Shunsuke Sakuma <s-sakuma@oz-vision.co.jp>
+ * @license  BSD Licence
+ * @link     http://github.com/oz-sysb/kinakomochi
+ */
 class MoneyBox
 {
     /**
@@ -13,18 +32,20 @@ class MoneyBox
      */
     public function __construct()
     {
-        $this->clear_total();
+        $this->clearTotal();
     }
 
     /**
      * 投入金額を加算する
      *
      * @param integer $amount 投入金額
+     *
      * @return integer
      */
-    public function add_total($amount)
+    public function addTotal($amount)
     {
         $this->_total += $amount;
+
         return $this->_total;
     }
 
@@ -33,19 +54,20 @@ class MoneyBox
      *
      * @return integer
      */
-    public function get_total()
+    public function getTotal()
     {
         return $this->_total;
     }
 
     /**
-     * totalを初期化する
+     * Totalを初期化する
      *
      * @return integer
      */
-    public function clear_total()
+    public function clearTotal()
     {
         $this->_total = 0;
+
         return $this->_total;
     }
 }
