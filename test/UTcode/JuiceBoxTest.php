@@ -29,16 +29,16 @@ class JuiceBoxTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * 一回ジュース情報を渡す
+	 * 登録後の確認
 	 *
 	 * @test
 	 * @dataProvider juice_list
-	 * @param $inserted array 送る情報
-	 * @param $expected array 期待結果
+	 * @param $juice array ジュース情報
 	 */
-	public function set_juiceのテスト($inserted, $expected)
+	public function set_juiceのテスト($juice)
 	{
-		$this->assertequals($expected, $this->_juice_box->set_juice($inserted));
+		$this->_juice_box->set_juice($juice);
+		$this->assertequals($juice, $this->_juice_box->get_juice());
 	}
 
 	/**
@@ -47,23 +47,7 @@ class JuiceBoxTest extends PHPUnit_Framework_TestCase
 	public function juice_list()
 	{
 		return [
-					[array('レッドブル' => array("price" => 200, "number" => 2)),
-					 array('レッドブル' => array("price" => 200, "number" => 2))],
+					[array('レッドブル' => array("price" => 200, "number" => 2))],
 				];
 	}
-
-	/**
-	 * ジュース情報の取得
-	 *
-	 * @test
-	 * @dataProvider juice_list
-	 * @param $inserted array 送る情報
-	 * @param $expected array 期待結果
-	 */
-	public function get_juiceのテスト($inserted, $expected)
-	{
-		$this->assertequals($expected, $this->_juice_box->set_juice($inserted));
-		$this->assertequals($expected, $this->_juice_box->get_juice());
-	}
-
 }

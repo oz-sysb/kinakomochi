@@ -22,12 +22,11 @@ class juiceBox
 	 * @todo コンストラクタで格納するならこれ要らないんじゃの確認。
 	 *
 	 * @param  array $juice ジュース情報
-	 * @return array
+	 * @return void
 	 */
 	public function set_juice($juice)
 	{
 		$this->_juice = $juice;
-		return $juice;
 	}
 
 	/**
