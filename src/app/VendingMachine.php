@@ -1,20 +1,21 @@
 <?php
-
-require_once('MoneyCheck.php');
+require_once('Moneybox.php');
 require_once('Tray.php');
-
+require_once('Moneycheck.php');
 /**
  * 自動販売機クラス
  */
 class VendingMachine
 {
 	/**
-	 * 投入金額の総計
+	 * お金管理
+	 * @var MoneyBox
 	 */
-	private $_total;
+	private $_money_box;
 
 	/**
 	 * 釣り銭トレイ
+	 * @var Tray
 	 */
 	public $tray;
 
@@ -23,8 +24,8 @@ class VendingMachine
 	 */
 	public function __construct()
 	{
-		$this->_total = 0;
-		$this->tray  = new Tray();
+		$this->_money_box = new MoneyBox();
+		$this->tray = new Tray();
 	}
 
 	/**
@@ -42,28 +43,25 @@ class VendingMachine
 		$money_check = new MoneyCheck();
 		if($money_check->validate_money($amount))
 		{
-			return $this->_total += $amount;
+			return($this->_money_box->add_total($amount));
 		}
 		$this->tray->compute_amount($amount);
-		return $this->_total;
+
+		return $this->_money_box->get_total();
 	}
 
 	/**
 	 * 払い戻し
 	 *
-	 * 投入金額の総計を釣り銭トレイに返却し、
-	 * 返却が成功したら、投入金額の総計を0に設定する
-	 * 成功しなかったら何もしない
+	 * 投入金額の総計を全額釣り銭トレイに返却する
 	 *
-	 * @return boolean 払い戻しと金額リセットが成功したか
+	 * @return integer 投入金額の総計 (0しかない想定)
 	 */
 	public function pay_back()
 	{
-		if(TRUE === $this->tray->compute_amount($this->_total))
-		{
-			$this->_total = 0;
-			return TRUE;
-		}
-		return FALSE;
+		$this->tray->compute_amount($this->_money_box->get_total());
+		$this->_money_box->clear_total();
+
+		return $this->tray->get_amount();
 	}
 }
