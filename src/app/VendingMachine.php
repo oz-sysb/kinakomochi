@@ -2,6 +2,7 @@
 require_once('Moneybox.php');
 require_once('Tray.php');
 require_once('Moneycheck.php');
+require_once('JuiceBox.php');
 /**
  * 自動販売機クラス
  */
@@ -63,5 +64,18 @@ class VendingMachine
 		$this->_money_box->clear_total();
 
 		return $this->tray->get_amount();
+	}
+
+	/**
+	 * ジュース情報を返却する
+	 *
+	 * @return array
+	 */
+	public function take_juice_information()
+	{
+		$juice_box = new JuiceBox();
+		$juice_data = $juice_box->return_information();
+		//TODO 考え中
+		return "コーラ 120円 在庫 5本";
 	}
 }

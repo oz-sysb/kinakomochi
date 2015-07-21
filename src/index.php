@@ -36,10 +36,14 @@ $_SESSION['vending_machine'] = new VendingMachine();
 		<li>
 			<button id="tray-button">トレイからとる</button>
 		</li>
+		<li>
+			<button id="juice-button">ジュースを見る</button>
+		</li>
 	</ul>
 	レスポンス表示ボックス<br>
 	amount: <input type="text" id="amount"><br>
 	tray: <input type="text" id="tray"><br>
+	juice: <input type="text" id="juice"><br>
 	<script>
 		$(function() {
 			$('#put-money-button').on('click', function() {
@@ -64,6 +68,15 @@ $_SESSION['vending_machine'] = new VendingMachine();
 					type: 'GET'
 				}).done(function(res) {
 					$('#tray').val(res);
+				});
+			});
+			
+			$('#juice-button').on('click', function() {
+				$.ajax('api/take_juice_information.php', {
+					type: 'GET'
+				}).done(function(res) {
+					$('#juice').val(res);
+					console.log($('#juice').val(res));
 				});
 			});
 		});

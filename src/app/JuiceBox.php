@@ -1,5 +1,5 @@
 <?php
-class juiceBox
+class JuiceBox
 {
 	/**
 	 * ジュース情報
@@ -20,9 +20,9 @@ class juiceBox
 	 * @param  array $juice ジュース情報
 	 * @return array
 	 */
-	public function get_infomation($juice)
+	public function set_information($juice)
 	{
-		$this->juice[] = $juice;
+		$this->_juice[] = $juice;
 		return $juice;
 	}
 
@@ -31,8 +31,8 @@ class juiceBox
 	 * @param  string $juice_name ジュース名
 	 * @return array
 	 */
-	public function return_infomation()
+	public function return_information()
 	{
-		return $this->juice;
+		return $this->_juice;
 	}
 }
