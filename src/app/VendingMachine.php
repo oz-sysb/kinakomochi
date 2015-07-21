@@ -1,4 +1,7 @@
 <?php
+/**
+ * ここかなんー
+ */
 require_once('MoneyBox.php');
 require_once('Tray.php');
 require_once('MoneyCheck.php');
