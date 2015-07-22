@@ -21,7 +21,7 @@ class MoneyBoxTest extends PHPUnit_Framework_TestCase
 	 */
 	public function test_add_total($money)
 	{
-		$result = $this->money_box->add_total($money);
+		$result = $this->money_box->addTotal($money);
 		$this->assertEquals($result, $money);
 	}
 

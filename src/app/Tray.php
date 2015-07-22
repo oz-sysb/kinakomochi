@@ -1,10 +1,27 @@
 <?php
 
 /**
+ * PHP version 5
+ *
+ * @category PHP
+ * @package  VOID
+ * @author   Shunsuke Sakuma <s-sakuma@oz-vision.co.jp>
+ * @license  BSD Licence
+ * @link     http://github.com/oz-sysb/kinakomochi
+ */
+
+/**
  * 釣り銭トレイクラス
+ *
+ * @category PHP
+ * @package  VOID
+ * @author   Shunsuke Sakuma <s-sakuma@oz-vision.co.jp>
+ * @license  BSD Licence
+ * @link     http://github.com/oz-sysb/kinakomochi
  */
 class Tray
 {
+
     /**
      * 釣り銭トレイ内金額の合計
      */
@@ -28,13 +45,14 @@ class Tray
      *
      * @return boolean 加算できたか否か
      */
-    public function compute_amount($amount)
+    public function computeAmount($amount)
     {
-        if(is_int($amount))
-        {
+        if (is_int($amount)) {
             $this->_amount += $amount;
+
             return true;
         }
+
         return false;
     }
 
@@ -43,7 +61,7 @@ class Tray
      *
      * @return integer 釣り銭トレイ内金額の合計
      */
-    public function get_amount()
+    public function getAmount()
     {
         return $this->_amount;
     }

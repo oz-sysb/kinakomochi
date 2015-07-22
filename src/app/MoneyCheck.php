@@ -1,4 +1,24 @@
 <?php
+
+/**
+ * PHP version 5.6
+ *
+ * @category VendingMachine
+ * @package  Validator
+ * @author   Sora Hashimoto <s-hashimoto@oz-vision.co.jp>
+ * @license  BSD Licence
+ * @link     http://github.com/oz-sysb/kinakomochi
+ */
+
+/**
+ * Class MoneyCheck
+ *
+ * @category VendingMachine
+ * @package  Validator
+ * @author   Sora Hashimoto <s-hashimoto@oz-vision.co.jp>
+ * @license  BSD Licence
+ * @link     http://github.com/oz-sysb/kinakomochi
+ */
 class MoneyCheck
 {
     /**
@@ -13,7 +33,7 @@ class MoneyCheck
      *
      * @return boolean 扱えるお金かどうか
      */
-    public function validate_money($amount)
+    public function validateMoney($amount)
     {
         return in_array($amount, self::$_valid_money, true);
     }

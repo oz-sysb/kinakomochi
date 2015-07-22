@@ -27,7 +27,7 @@ class TrayTest extends PHPUnit_Framework_TestCase
 	 */
 	public function 釣り銭トレイ内に足す($add, $expected)
 	{
-		$this->assertEquals($expected, $this->tray->compute_amount($add));
+		$this->assertEquals($expected, $this->tray->computeAmount($add));
 	}
 
 	/**
@@ -56,9 +56,9 @@ class TrayTest extends PHPUnit_Framework_TestCase
 	 */
 	public function 釣り銭トレイにあるお金の確認($refund1, $refund2, $change)
 	{
-		$this->tray->compute_amount($refund1);
-		$this->tray->compute_amount($refund2);
-		$this->assertEquals($change, $this->tray->get_amount());
+		$this->tray->computeAmount($refund1);
+		$this->tray->computeAmount($refund2);
+		$this->assertEquals($change, $this->tray->getAmount());
 	}
 
 	/**
