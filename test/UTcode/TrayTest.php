@@ -45,12 +45,13 @@ class TrayTest extends PHPUnit_Framework_TestCase
     /**
      * 釣り銭トレイ内に足す
      *
+     * @param integer $add      足すもの
+     * @param boolean $expected 期待結果
+     *
      * @return void
      *
      * @test
      * @dataProvider add_list
-     * @param $add      integer 足すもの
-     * @param $expected boolean 期待結果
      */
     public function 釣り銭トレイ内に足す($add, $expected)
     {
@@ -77,13 +78,14 @@ class TrayTest extends PHPUnit_Framework_TestCase
     /**
      * 釣り銭トレイにあるお金の確認
      *
+     * @param integer $refund1 1回目の返却金額
+     * @param integer $refund2 2回目の返却金額
+     * @param integer $change  現在の釣り銭
+     *
      * @return void
      *
      * @test
      * @dataProvider amount_change_list
-     * @param $refund1 integer 1回目の返却金額
-     * @param $refund2 integer 2回目の返却金額
-     * @param $change  integer 現在の釣り銭
      */
     public function 釣り銭トレイにあるお金の確認($refund1, $refund2, $change)
     {
