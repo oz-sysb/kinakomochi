@@ -37,13 +37,15 @@ class VendingMachineTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * なにかを1回投入する。数値は金額のつもり。
-     *
-     * @test
-     * @dataProvider insertProvider
+     * UnitTest: takeMoney (投入1回)
      *
      * @param $inserted int 投入されるもの
      * @param $expected int 期待結果
+     *
+     * @return void
+     *
+     * @test
+     * @dataProvider insertProvider
      */
     public function confirmTakeMoney($inserted, $expected)
     {
@@ -76,15 +78,17 @@ class VendingMachineTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * なにかを2回投入する。数値は金額のつもり。
-     *
-     * @test
-     * @dataProvider twiceInsertProvider
+     * UnitTest: takeMoney (投入2回)
      *
      * @param $inserted1 int 1回目に投入するもの
      * @param $expected1 int 1回目投入の期待結果
      * @param $inserted2 int 2回目に投入するもの
      * @param $expected2 int 2回目投入の期待結果
+     *
+     * @return void
+     *
+     * @test
+     * @dataProvider twiceInsertProvider
      */
     public function confirmTakeMoneyTwice($inserted1, $expected1, $inserted2, $expected2)
     {
@@ -108,6 +112,10 @@ class VendingMachineTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * UnitTest: payBack
+     *
+     * @return void
+     *
      * @test
      */
     public function confirmPayBack()
