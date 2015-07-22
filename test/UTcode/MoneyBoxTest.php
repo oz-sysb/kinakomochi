@@ -23,11 +23,15 @@ require_once 'src/app/MoneyBox.php';
 class MoneyBoxTest extends PHPUnit_Framework_TestCase
 {
     /**
-     * @var MoneyCheck
+     * テスト対象
+     *
+     * @var MoneyBox
      */
     private $money_box;
 
     /**
+     * 事前処理
+     *
      * @setup
      */
     public function setUp()
@@ -36,6 +40,8 @@ class MoneyBoxTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Unit Test: addTotal
+     *
      * @dataProvider money_list
      * @test
      */
@@ -46,7 +52,8 @@ class MoneyBoxTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * お金リスト
+     * DataProvider
+     *
      * @return array
      */
     public function money_list()
@@ -66,7 +73,8 @@ class MoneyBoxTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * お金リスト
+     * DataProvider
+     * 
      * @return array
      */
     public function total_list()
