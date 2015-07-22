@@ -1,61 +1,80 @@
 <?php
 
+/**
+ * PHP version 5.6
+ *
+ * @category VendingMachine
+ * @package  UnitTest
+ * @author   Sora Hashimoto <s-hashimoto@oz-vision.co.jp>
+ * @license  BSD Licence
+ * @link     http://github.com/oz-sysb/kinakomochi
+ */
 require_once 'src/app/MoneyBox.php';
 
+/**
+ * Class MoneyBoxTest
+ *
+ * @category VendingMachine
+ * @package  UnitTest
+ * @author   Sora Hashimoto <s-hashimoto@oz-vision.co.jp>
+ * @license  BSD Licence
+ * @link     http://github.com/oz-sysb/kinakomochi
+ */
 class MoneyBoxTest extends PHPUnit_Framework_TestCase
 {
-	/** @var MoneyCheck */
-	private $money_box;
+    /**
+     * テスト対象
+     *
+     * @var MoneyBox
+     */
+    private $_moneyBox;
 
-	/**
-	 * @setup
-	 */
-	public function setUp()
-	{
-		$this->money_box = new MoneyBox();
-	}
+    /**
+     * 事前処理
+     *
+     * @return void
+     *
+     * @setup
+     */
+    public function setUp()
+    {
+        $this->_moneyBox = new MoneyBox();
+    }
 
-	/**
-	 * @dataProvider money_list
-	 * @test
-	 */
-	public function test_add_total($money)
-	{
-		$result = $this->money_box->addTotal($money);
-		$this->assertEquals($result, $money);
-	}
+    /**
+     * Unit Test: addTotal
+     *
+     * @param integer $money 加算金額
+     *
+     * @return void
+     *
+     * @dataProvider moneyProvider
+     * @test
+     */
+    public function confirmAddTotal($money)
+    {
+        $result = $this->_moneyBox->addTotal($money);
+        $this->assertEquals($result, $money);
+    }
 
-	/**
-	 * お金リスト
-	 * @return array
-	 */
-	public function money_list()
-	{
-		return [
-					[1],
-					[5],
-					[10],
-					[50],
-					[100],
-					[500],
-					[1000],
-					[2000],
-					[5000],
-					[10000]
-				];
-	}
-
-	/**
-	 * お金リスト
-	 * @return array
-	 */
-	public function total_list()
-	{
-		return [
-					[10,50,100,160],
-					[50,5000,500,5550],
-					[10000,1,5,10006]
-				];
-	}
-
+    /**
+     * DataProvider
+     *
+     * @return array
+     */
+    public function moneyProvider()
+    {
+        return [
+            [1],
+            [5],
+            [10],
+            [50],
+            [100],
+            [500],
+            [1000],
+            [2000],
+            [5000],
+            [10000]
+        ];
+    }
 }
