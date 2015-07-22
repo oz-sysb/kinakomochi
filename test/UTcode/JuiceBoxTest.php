@@ -1,40 +1,15 @@
 <?php
 
-/**
- * PHP version 5.6
- *
- * @category VendingMachine
- * @package  UnitTest
- * @author   Sora Hashimoto <s-hashimoto@oz-vision.co.jp>
- * @license  BSD Licence
- * @link     http://github.com/oz-sysb/kinakomochi
- */
-
 require_once 'src/app/JuiceBox.php';
 
-/**
- * Class JuiceBoxTest
- *
- * @category VendingMachine
- * @package  UnitTest
- * @author   Sora Hashimoto <s-hashimoto@oz-vision.co.jp>
- * @license  BSD Licence
- * @link     http://github.com/oz-sysb/kinakomochi
- */
 class JuiceBoxTest extends PHPUnit_Framework_TestCase
 {
     /**
-     * テスト対象
-     *
      * @var JuiceBox
      */
     private $juiceBox;
 
     /**
-     * 事前処理
-     *
-     * @return void
-     *
      * @setup
      */
     public function setUp()
@@ -57,8 +32,8 @@ class JuiceBoxTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * UnitTest: setJuice
-     * UnitTest: getJuice
+     * Unit Test: setJuice
+     * Unit Test: getJuice
      *
      * @param array $juice ジュース情報
      *
@@ -74,8 +49,6 @@ class JuiceBoxTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * DataProvider
-     *
      * @return array
      */
     public function juiceProvider()
