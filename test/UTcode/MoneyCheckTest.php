@@ -4,8 +4,8 @@
  * PHP version 5.6
  *
  * @category VendingMachine
- * @package  ValidatorTest
- * @author   Sora Hashimoto <s-hashimoto@oz-vision.co.jp>
+ * @package  UnitTest
+ * @author   Yuko Terashima <y-terashima@oz-vision.co.jp>
  * @license  BSD Licence
  * @link     http://github.com/oz-sysb/kinakomochi
  */
@@ -16,25 +16,26 @@ require_once 'src/app/MoneyCheck.php';
  * Class MoneyCheckTest
  *
  * @category VendingMachine
- * @package  ValidatorTest
- * @author   Sora Hashimoto <s-hashimoto@oz-vision.co.jp>
+ * @package  UnitTest
+ * @author   Yuko Terashima <y-terashima@oz-vision.co.jp>
  * @license  BSD Licence
  * @link     http://github.com/oz-sysb/kinakomochi
  */
 class MoneyCheckTest extends PHPUnit_Framework_TestCase
 {
     /**
-     * Target Object
+     * テスト対象
      *
      * @var MoneyCheck
      */
     private $_moneyCheck;
 
     /**
-     * SetUp for Unit Test
+     * 事前処理
+     *
+     * @return void
      *
      * @setup
-     * @return void
      */
     public function setUp()
     {
@@ -42,14 +43,15 @@ class MoneyCheckTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Unit Test for validateMoney
+     * UnitTest: validateMoney
      *
      * @param integer $money    お金
      * @param boolean $expected 期待結果
      *
+     * @return void
+     *
      * @test
      * @dataProvider moneyValidator
-     * @return       void
      */
     public function validateMoneyTest($money, $expected)
     {
