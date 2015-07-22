@@ -22,7 +22,9 @@ require_once 'src/app/MoneyBox.php';
  */
 class MoneyBoxTest extends PHPUnit_Framework_TestCase
 {
-    /** @var MoneyCheck */
+    /**
+     * @var MoneyCheck
+     */
     private $money_box;
 
     /**
