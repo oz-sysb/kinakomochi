@@ -28,7 +28,7 @@ class MoneyCheckTest extends PHPUnit_Framework_TestCase
      *
      * @var MoneyCheck
      */
-    private $_moneyCheck;
+    private $moneyCheck;
 
     /**
      * 事前処理
@@ -39,7 +39,7 @@ class MoneyCheckTest extends PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-        $this->_moneyCheck = new MoneyCheck();
+        $this->moneyCheck = new MoneyCheck();
     }
 
     /**
@@ -55,7 +55,7 @@ class MoneyCheckTest extends PHPUnit_Framework_TestCase
      */
     public function validateMoneyTest($money, $expected)
     {
-        $result = $this->_moneyCheck->validateMoney($money);
+        $result = $this->moneyCheck->validateMoney($money);
         $this->assertEquals($result, $expected);
     }
 
