@@ -44,6 +44,8 @@ class MoneyBoxTest extends PHPUnit_Framework_TestCase
     /**
      * Unit Test: addTotal
      *
+     * @param integer $money 加算金額
+     *
      * @return void
      *
      * @dataProvider moneyProvider
