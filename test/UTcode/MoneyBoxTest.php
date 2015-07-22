@@ -27,7 +27,7 @@ class MoneyBoxTest extends PHPUnit_Framework_TestCase
      *
      * @var MoneyBox
      */
-    private $_moneyBox;
+    private $moneyBox;
 
     /**
      * 事前処理
@@ -38,7 +38,7 @@ class MoneyBoxTest extends PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-        $this->_moneyBox = new MoneyBox();
+        $this->moneyBox = new MoneyBox();
     }
 
     /**
@@ -53,7 +53,7 @@ class MoneyBoxTest extends PHPUnit_Framework_TestCase
      */
     public function confirmAddTotal($money)
     {
-        $result = $this->_moneyBox->addTotal($money);
+        $result = $this->moneyBox->addTotal($money);
         $this->assertEquals($result, $money);
     }
 
