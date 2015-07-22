@@ -33,7 +33,7 @@ class TrayTest extends PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-        $this->tray = new Tray();
+        $this->_tray = new Tray();
     }
 
     /**
