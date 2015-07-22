@@ -33,6 +33,8 @@ class TrayTest extends PHPUnit_Framework_TestCase
     /**
      * 事前処理
      *
+     * @return void
+     *
      * @setup
      */
     public function setUp()
@@ -42,6 +44,8 @@ class TrayTest extends PHPUnit_Framework_TestCase
 
     /**
      * 釣り銭トレイ内に足す
+     *
+     * @return void
      *
      * @test
      * @dataProvider add_list
@@ -72,6 +76,8 @@ class TrayTest extends PHPUnit_Framework_TestCase
 
     /**
      * 釣り銭トレイにあるお金の確認
+     *
+     * @return void
      *
      * @test
      * @dataProvider amount_change_list
