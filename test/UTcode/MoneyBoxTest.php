@@ -11,6 +11,15 @@
  */
 require_once 'src/app/MoneyBox.php';
 
+/**
+ * Class MoneyBoxTest
+ *
+ * @category VendingMachine
+ * @package  UnitTest
+ * @author   Sora Hashimoto <s-hashimoto@oz-vision.co.jp>
+ * @license  BSD Licence
+ * @link     http://github.com/oz-sysb/kinakomochi
+ */
 class MoneyBoxTest extends PHPUnit_Framework_TestCase
 {
     /** @var MoneyCheck */
