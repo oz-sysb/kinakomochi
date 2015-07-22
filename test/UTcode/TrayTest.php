@@ -1,40 +1,15 @@
 <?php
 
-/**
- * PHP version 5.6
- *
- * @category VendingMachine
- * @package  UnitTest
- * @author   Shunsuke Sakuma <s-sakuma@oz-vision.co.jp>
- * @license  BSD Licence
- * @link     http://github.com/oz-sysb/kinakomochi
- */
-
 require_once 'src/app/Tray.php';
 
-/**
- * Class TrayTest
- *
- * @category VendingMachine
- * @package  UnitTest
- * @author   Shunsuke Sakuma <s-sakuma@oz-vision.co.jp>
- * @license  BSD Licence
- * @link     http://github.com/oz-sysb/kinakomochi
- */
 class TrayTest extends PHPUnit_Framework_TestCase
 {
     /**
-     * テスト対象
-     *
      * @var Tray
      */
     private $tray;
 
     /**
-     * 事前処理
-     *
-     * @return void
-     *
      * @setup
      */
     public function setUp()
@@ -43,7 +18,7 @@ class TrayTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * 釣り銭トレイ内に足す
+     * Unit Test: computeAmount
      *
      * @param integer $add      足すもの
      * @param boolean $expected 期待結果
@@ -59,8 +34,6 @@ class TrayTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * DataProvider
-     *
      * @return array
      */
     public function addProvider()
@@ -76,7 +49,7 @@ class TrayTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * 釣り銭トレイにあるお金の確認
+     * Unit Test: getAmount
      *
      * @param integer $refund1 1回目の返却金額
      * @param integer $refund2 2回目の返却金額
@@ -95,8 +68,6 @@ class TrayTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * DataProvider
-     *
      * @return array
      */
     public function changeProvider()

@@ -18,7 +18,7 @@ class VendingMachineTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * UnitTest: takeMoney (投入1回)
+     * Unit Test: takeMoney (投入1回)
      *
      * @param $inserted int 投入されるもの
      * @param $expected int 期待結果
@@ -59,7 +59,7 @@ class VendingMachineTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * UnitTest: takeMoney (投入2回)
+     * Unit Test: takeMoney (投入2回)
      *
      * @param $inserted1 int 1回目に投入するもの
      * @param $expected1 int 1回目投入の期待結果
@@ -93,7 +93,7 @@ class VendingMachineTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * UnitTest: payBack
+     * Unit Test: payBack
      *
      * @return void
      *

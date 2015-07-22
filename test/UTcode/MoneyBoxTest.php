@@ -1,39 +1,15 @@
 <?php
 
-/**
- * PHP version 5.6
- *
- * @category VendingMachine
- * @package  UnitTest
- * @author   Sora Hashimoto <s-hashimoto@oz-vision.co.jp>
- * @license  BSD Licence
- * @link     http://github.com/oz-sysb/kinakomochi
- */
 require_once 'src/app/MoneyBox.php';
 
-/**
- * Class MoneyBoxTest
- *
- * @category VendingMachine
- * @package  UnitTest
- * @author   Sora Hashimoto <s-hashimoto@oz-vision.co.jp>
- * @license  BSD Licence
- * @link     http://github.com/oz-sysb/kinakomochi
- */
 class MoneyBoxTest extends PHPUnit_Framework_TestCase
 {
     /**
-     * テスト対象
-     *
      * @var MoneyBox
      */
     private $moneyBox;
 
     /**
-     * 事前処理
-     *
-     * @return void
-     *
      * @setup
      */
     public function setUp()
@@ -58,8 +34,6 @@ class MoneyBoxTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * DataProvider
-     *
      * @return array
      */
     public function moneyProvider()
