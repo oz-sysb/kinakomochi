@@ -32,6 +32,8 @@ class MoneyBoxTest extends PHPUnit_Framework_TestCase
     /**
      * 事前処理
      *
+     * @return void
+     *
      * @setup
      */
     public function setUp()
@@ -41,6 +43,8 @@ class MoneyBoxTest extends PHPUnit_Framework_TestCase
 
     /**
      * Unit Test: addTotal
+     *
+     * @return void
      *
      * @dataProvider money_list
      * @test
@@ -74,7 +78,7 @@ class MoneyBoxTest extends PHPUnit_Framework_TestCase
 
     /**
      * DataProvider
-     * 
+     *
      * @return array
      */
     public function total_list()
