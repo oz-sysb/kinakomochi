@@ -26,34 +26,34 @@ class VendingMachineTest extends PHPUnit_Framework_TestCase
     /**
      * @var VendingMachine
      */
-    private $vending_machine;
+    private $vendingMachine;
 
     /**
      * @setup
      */
     public function setUp()
     {
-        $this->vending_machine = new VendingMachine();
+        $this->vendingMachine = new VendingMachine();
     }
 
     /**
      * なにかを1回投入する。数値は金額のつもり。
      *
      * @test
-     * @dataProvider insert_list
+     * @dataProvider insertProvider
      *
      * @param $inserted int 投入されるもの
      * @param $expected int 期待結果
      */
-    public function なにかを1回投入する($inserted, $expected)
+    public function confirmTakeMoney($inserted, $expected)
     {
-        $this->assertequals($expected, $this->vending_machine->takeMoney($inserted));
+        $this->assertequals($expected, $this->vendingMachine->takeMoney($inserted));
     }
 
     /**
      * @return array
      */
-    public function insert_list()
+    public function insertProvider()
     {
         // 投入するもの, 期待結果
         return [
@@ -79,23 +79,23 @@ class VendingMachineTest extends PHPUnit_Framework_TestCase
      * なにかを2回投入する。数値は金額のつもり。
      *
      * @test
-     * @dataProvider insert_twice_list
+     * @dataProvider twiceInsertProvider
      *
      * @param $inserted1 int 1回目に投入するもの
      * @param $expected1 int 1回目投入の期待結果
      * @param $inserted2 int 2回目に投入するもの
      * @param $expected2 int 2回目投入の期待結果
      */
-    public function なにかを2回投入する($inserted1, $expected1, $inserted2, $expected2)
+    public function confirmTakeMoneyTwice($inserted1, $expected1, $inserted2, $expected2)
     {
-        $this->assertequals($expected1, $this->vending_machine->takeMoney($inserted1));
-        $this->assertequals($expected2, $this->vending_machine->takeMoney($inserted2));
+        $this->assertequals($expected1, $this->vendingMachine->takeMoney($inserted1));
+        $this->assertequals($expected2, $this->vendingMachine->takeMoney($inserted2));
     }
 
     /**
      * @return array
      */
-    public function insert_twice_list()
+    public function twiceInsertProvider()
     {
         // 1回目に投入するもの、1回目投入の期待結果、2回目に投入するもの、2回目投入の期待結果
         return [
@@ -108,9 +108,9 @@ class VendingMachineTest extends PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function 払い戻す()
+    public function confirmPayBack()
     {
-        $this->assertEquals(0, $this->vending_machine->payBack());
+        $this->assertEquals(0, $this->vendingMachine->payBack());
     }
 
 
