@@ -24,11 +24,15 @@ require_once 'src/app/Tray.php';
 class TrayTest extends PHPUnit_Framework_TestCase
 {
     /**
+     * テスト対象
+     *
      * @var Tray
      */
     private $_tray;
 
     /**
+     * 事前処理
+     *
      * @setup
      */
     public function setUp()
@@ -50,6 +54,8 @@ class TrayTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * DataProvider
+     *
      * @return array
      */
     public function add_list()
@@ -81,6 +87,8 @@ class TrayTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * DataProvider
+     *
      * @return array
      */
     public function amount_change_list()
