@@ -12,6 +12,15 @@
 
 require_once 'src/app/Tray.php';
 
+/**
+ * Class TrayTest
+ *
+ * @category VendingMachine
+ * @package  UnitTest
+ * @author   Shunsuke Sakuma <s-sakuma@oz-vision.co.jp>
+ * @license  BSD Licence
+ * @link     http://github.com/oz-sysb/kinakomochi
+ */
 class TrayTest extends PHPUnit_Framework_TestCase
 {
     /**
