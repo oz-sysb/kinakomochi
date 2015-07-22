@@ -28,7 +28,7 @@ class TrayTest extends PHPUnit_Framework_TestCase
      *
      * @var Tray
      */
-    private $_tray;
+    private $tray;
 
     /**
      * 事前処理
@@ -39,7 +39,7 @@ class TrayTest extends PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-        $this->_tray = new Tray();
+        $this->tray = new Tray();
     }
 
     /**
@@ -55,7 +55,7 @@ class TrayTest extends PHPUnit_Framework_TestCase
      */
     public function confirmComputeAmount($add, $expected)
     {
-        $this->assertEquals($expected, $this->_tray->computeAmount($add));
+        $this->assertEquals($expected, $this->tray->computeAmount($add));
     }
 
     /**
@@ -89,9 +89,9 @@ class TrayTest extends PHPUnit_Framework_TestCase
      */
     public function confirmGetAmount($refund1, $refund2, $change)
     {
-        $this->_tray->computeAmount($refund1);
-        $this->_tray->computeAmount($refund2);
-        $this->assertEquals($change, $this->_tray->getAmount());
+        $this->tray->computeAmount($refund1);
+        $this->tray->computeAmount($refund2);
+        $this->assertEquals($change, $this->tray->getAmount());
     }
 
     /**
