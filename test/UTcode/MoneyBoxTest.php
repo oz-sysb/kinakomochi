@@ -46,7 +46,7 @@ class MoneyBoxTest extends PHPUnit_Framework_TestCase
      *
      * @return void
      *
-     * @dataProvider money_list
+     * @dataProvider moneyProvider
      * @test
      */
     public function test_add_total($money)
@@ -60,7 +60,7 @@ class MoneyBoxTest extends PHPUnit_Framework_TestCase
      *
      * @return array
      */
-    public function money_list()
+    public function moneyProvider()
     {
         return [
             [1],
@@ -75,19 +75,4 @@ class MoneyBoxTest extends PHPUnit_Framework_TestCase
             [10000]
         ];
     }
-
-    /**
-     * DataProvider
-     *
-     * @return array
-     */
-    public function total_list()
-    {
-        return [
-            [10,50,100,160],
-            [50,5000,500,5550],
-            [10000,1,5,10006]
-        ];
-    }
-
 }
