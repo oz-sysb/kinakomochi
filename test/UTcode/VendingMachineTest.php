@@ -112,6 +112,4 @@ class VendingMachineTest extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(0, $this->vendingMachine->payBack());
     }
-
-
 }
