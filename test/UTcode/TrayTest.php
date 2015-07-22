@@ -1,5 +1,15 @@
 <?php
 
+/**
+ * PHP version 5.6
+ *
+ * @category VendingMachine
+ * @package  UnitTest
+ * @author   Shunsuke Sakuma <s-sakuma@oz-vision.co.jp>
+ * @license  BSD Licence
+ * @link     http://github.com/oz-sysb/kinakomochi
+ */
+
 require_once 'src/app/Tray.php';
 
 class TrayTest extends PHPUnit_Framework_TestCase
