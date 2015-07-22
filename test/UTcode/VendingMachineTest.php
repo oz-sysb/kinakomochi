@@ -97,7 +97,9 @@ class VendingMachineTest extends PHPUnit_Framework_TestCase
      */
     public function twiceInsertProvider()
     {
-        // 1回目に投入するもの、1回目投入の期待結果、2回目に投入するもの、2回目投入の期待結果
+        // 順に
+        // 1回目に投入するもの、1回目投入の期待結果
+        // 2回目に投入するもの、2回目投入の期待結果
         return [
             [10, 10, 100, 110],
             [10, 10, 1, 10],
