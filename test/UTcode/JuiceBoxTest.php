@@ -28,7 +28,7 @@ class JuiceBoxTest extends PHPUnit_Framework_TestCase
      *
      * @var JuiceBox
      */
-    private $_juiceBox;
+    private $juiceBox;
 
     /**
      * 事前処理
@@ -39,7 +39,7 @@ class JuiceBoxTest extends PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-        $this->_juiceBox = new JuiceBox();
+        $this->juiceBox = new JuiceBox();
     }
 
     /**
@@ -53,7 +53,7 @@ class JuiceBoxTest extends PHPUnit_Framework_TestCase
     public function confirmConstructor()
     {
         $initData = ['コーラ' => ["price" => 120, "number" => 5]];
-        $this->assertequals($initData, $this->_juiceBox->getJuice());
+        $this->assertequals($initData, $this->juiceBox->getJuice());
     }
 
     /**
@@ -69,8 +69,8 @@ class JuiceBoxTest extends PHPUnit_Framework_TestCase
      */
     public function confirmSetGetJuice($juice)
     {
-        $this->_juiceBox->setJuice($juice);
-        $this->assertequals($juice, $this->_juiceBox->getJuice());
+        $this->juiceBox->setJuice($juice);
+        $this->assertequals($juice, $this->juiceBox->getJuice());
     }
 
     /**
