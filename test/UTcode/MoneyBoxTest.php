@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * PHP version 5.6
+ *
+ * @category VendingMachine
+ * @package  UnitTest
+ * @author   Sora Hashimoto <s-hashimoto@oz-vision.co.jp>
+ * @license  BSD Licence
+ * @link     http://github.com/oz-sysb/kinakomochi
+ */
 require_once 'src/app/MoneyBox.php';
 
 class MoneyBoxTest extends PHPUnit_Framework_TestCase
