@@ -1,24 +1,6 @@
 <?php
+namespace VendingMachine;
 
-/**
- * PHP version 5
- *
- * @category PHP
- * @package  VOID
- * @author   Shunsuke Sakuma <s-sakuma@oz-vision.co.jp>
- * @license  BSD Licence
- * @link     http://github.com/oz-sysb/kinakomochi
- */
-
-/**
- * 釣り銭トレイクラス
- *
- * @category PHP
- * @package  VOID
- * @author   Shunsuke Sakuma <s-sakuma@oz-vision.co.jp>
- * @license  BSD Licence
- * @link     http://github.com/oz-sysb/kinakomochi
- */
 class Tray
 {
 

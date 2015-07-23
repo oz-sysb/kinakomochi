@@ -1,8 +1,9 @@
 <?php
+namespace VendingMachineUnitTest;
 
-require_once 'src/app/JuiceBox.php';
+use VendingMachine\JuiceBox;
 
-class JuiceBoxTest extends PHPUnit_Framework_TestCase
+class JuiceBoxTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @var JuiceBox

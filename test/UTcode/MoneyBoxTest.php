@@ -1,8 +1,9 @@
 <?php
+namespace VendingMachineUnitTest;
 
-require_once 'src/app/MoneyBox.php';
+use VendingMachine\MoneyBox;
 
-class MoneyBoxTest extends PHPUnit_Framework_TestCase
+class MoneyBoxTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @var MoneyBox
