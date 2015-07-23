@@ -1,8 +1,9 @@
 <?php
+namespace VendingMachineUnitTest;
 
-require_once 'src/app/VendingMachine.php';
+use VendingMachine\VendingMachine;
 
-class VendingMachineTest extends PHPUnit_Framework_TestCase
+class VendingMachineTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @var VendingMachine
