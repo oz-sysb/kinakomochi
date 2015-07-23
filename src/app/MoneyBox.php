@@ -8,7 +8,7 @@ class MoneyBox
      *
      * @var integer
      */
-    private $_total;
+    private $total;
 
     /**
      * コンストラクタ
@@ -27,9 +27,9 @@ class MoneyBox
      */
     public function addTotal($amount)
     {
-        $this->_total += $amount;
+        $this->total += $amount;
 
-        return $this->_total;
+        return $this->total;
     }
 
     /**
@@ -39,7 +39,7 @@ class MoneyBox
      */
     public function getTotal()
     {
-        return $this->_total;
+        return $this->total;
     }
 
     /**
@@ -49,8 +49,8 @@ class MoneyBox
      */
     public function clearTotal()
     {
-        $this->_total = 0;
+        $this->total = 0;
 
-        return $this->_total;
+        return $this->total;
     }
 }

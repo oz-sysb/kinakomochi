@@ -1,30 +1,18 @@
 <?php
 namespace VendingMachine;
 
-require_once 'MoneyBox.php';
-require_once 'Tray.php';
-require_once 'MoneyCheck.php';
-
-/**
- * 自動販売機クラス
- *
- * @category PHP
- * @package  VOID
- * @author   Shunsuke Sakuma <s-sakuma@oz-vision.co.jp>
- * @license  BSD Licence
- * @link     http://github.com/oz-sysb/kinakomochi
- */
-
 class VendingMachine
 {
     /**
      * お金管理
+     *
      * @var MoneyBox
      */
-    private $_money_box;
+    private $moneyBox;
 
     /**
      * 釣り銭トレイ
+     *
      * @var Tray
      */
     public $tray;
@@ -34,7 +22,7 @@ class VendingMachine
      */
     public function __construct()
     {
-        $this->_money_box = new MoneyBox();
+        $this->moneyBox = new MoneyBox();
         $this->tray = new Tray();
     }
 
@@ -52,11 +40,11 @@ class VendingMachine
     {
         $money_check = new MoneyCheck();
         if ($money_check->validateMoney($amount)) {
-            return ($this->_money_box->addTotal($amount));
+            return ($this->moneyBox->addTotal($amount));
         }
         $this->tray->computeAmount($amount);
 
-        return $this->_money_box->getTotal();
+        return $this->moneyBox->getTotal();
     }
 
     /**
@@ -68,8 +56,8 @@ class VendingMachine
      */
     public function payBack()
     {
-        $this->tray->computeAmount($this->_money_box->getTotal());
-        $this->_money_box->clearTotal();
+        $this->tray->computeAmount($this->moneyBox->getTotal());
+        $this->moneyBox->clearTotal();
 
         return $this->tray->getAmount();
     }
