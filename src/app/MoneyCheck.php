@@ -1,6 +1,6 @@
 <?php
 
-namespace kinakomochi\src\app;
+namespace VendingMachine\app;
 
 class MoneyCheck
 {

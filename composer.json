@@ -5,8 +5,8 @@
     },
     "autoload": {
         "psr-4": {
-            "kinakomochi\\src\\": "src/",
-            "kinakomochi\\test\\": "test/"
+            "VendingMachine\\": "src/",
+            "VendingMachineTest\\": "test/"
         }
     }
 }

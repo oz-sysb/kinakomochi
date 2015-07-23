@@ -1,8 +1,8 @@
 <?php
 
-namespace kinakomochi\test\UTcode;
+namespace VendingMachineTest\UTcode;
 
-use kinakomochi\src\app\MoneyCheck;
+use VendingMachine\app\MoneyCheck;
 
 class MoneyCheckTest extends \PHPUnit_Framework_TestCase
 {
