@@ -1,8 +1,11 @@
 <?php
 
-require_once 'src/app/MoneyCheck.php';
+namespace VendingMachineUnitTest\UTcode;
 
-class MoneyCheckTest extends PHPUnit_Framework_TestCase
+use VendingMachine\MoneyCheck;
+//require_once 'src/app/MoneyCheck.php';
+
+class MoneyCheckTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @var MoneyCheck

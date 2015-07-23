@@ -1,24 +1,7 @@
 <?php
 
-/**
- * PHP version 5.6
- *
- * @category VendingMachine
- * @package  Validator
- * @author   Sora Hashimoto <s-hashimoto@oz-vision.co.jp>
- * @license  BSD Licence
- * @link     http://github.com/oz-sysb/kinakomochi
- */
+namespace VendingMachine;
 
-/**
- * Class MoneyCheck
- *
- * @category VendingMachine
- * @package  Validator
- * @author   Sora Hashimoto <s-hashimoto@oz-vision.co.jp>
- * @license  BSD Licence
- * @link     http://github.com/oz-sysb/kinakomochi
- */
 class MoneyCheck
 {
     /**
