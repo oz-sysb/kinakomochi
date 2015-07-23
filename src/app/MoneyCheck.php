@@ -1,11 +1,12 @@
 <?php
-
 namespace VendingMachine;
 
 class MoneyCheck
 {
     /**
      * 扱えるお金
+     *
+     * @var array
      */
     private static $_valid_money = [10, 50, 100, 500, 1000];
 

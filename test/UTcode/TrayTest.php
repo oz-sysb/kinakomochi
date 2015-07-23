@@ -1,8 +1,9 @@
 <?php
+namespace VendingMachineUnitTest;
 
-require_once 'src/app/Tray.php';
+use VendingMachine\Tray;
 
-class TrayTest extends PHPUnit_Framework_TestCase
+class TrayTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @var Tray

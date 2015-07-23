@@ -1,5 +1,4 @@
 <?php
-
 namespace VendingMachineUnitTest;
 
 use VendingMachine\MoneyCheck;
