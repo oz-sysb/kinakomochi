@@ -1,8 +1,8 @@
 <?php
 
-namespace VendingMachineTest\UTcode;
+namespace VendingMachineUnitTest;
 
-use VendingMachine\app\MoneyCheck;
+use VendingMachine\MoneyCheck;
 
 class MoneyCheckTest extends \PHPUnit_Framework_TestCase
 {

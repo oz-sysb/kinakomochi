@@ -5,8 +5,8 @@
     },
     "autoload": {
         "psr-4": {
-            "VendingMachine\\": "src/",
-            "VendingMachineTest\\": "test/"
+            "VendingMachine\\": "src/app/",
+            "VendingMachineUnitTest\\": "test/UTcode/"
         }
     }
 }

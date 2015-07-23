@@ -1,6 +1,6 @@
 <?php
 
-namespace VendingMachine\app;
+namespace VendingMachine;
 
 class MoneyCheck
 {
