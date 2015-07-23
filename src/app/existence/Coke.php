@@ -1,5 +1,5 @@
 <?php
-namespace app\existence;
+namespace VendingMachine\existence;
 class Coke implements DrinkInterface
 {
     private $name;
