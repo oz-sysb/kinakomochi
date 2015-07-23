@@ -1,10 +1,14 @@
 <?php
+
 namespace VendingMachine\existence;
+
+use VendingMachine\existence;
+
 class Coke implements DrinkInterface
 {
     private $name;
     private $price;
-    private $count;
+    private $number;
 
 		/**
 		 * コンストラクタ

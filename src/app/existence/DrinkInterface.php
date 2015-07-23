@@ -1,5 +1,6 @@
 <?php
-namespace app\existence;
+namespace VendingMachine\existence;
+
 Interface DrinkInterface
 {
 	/**
