@@ -5,8 +5,10 @@ class JuiceBox
 {
     /**
      * ジュース情報
+     *
+     * @var array
      */
-    private $_juice;
+    private $juice;
 
     /**
      * コンストラクタ
@@ -14,7 +16,7 @@ class JuiceBox
     public function __construct()
     {
         //ジュースの配列を持っている
-        $this->_juice = ['コーラ' => ["price" => 120, "number" => 5]];
+        $this->juice = ['コーラ' => ["price" => 120, "number" => 5]];
     }
 
     /**
@@ -29,7 +31,7 @@ class JuiceBox
      */
     public function setJuice($juice)
     {
-        $this->_juice = $juice;
+        $this->juice = $juice;
     }
 
     /**
@@ -39,6 +41,6 @@ class JuiceBox
      */
     public function getJuice()
     {
-        return $this->_juice;
+        return $this->juice;
     }
 }

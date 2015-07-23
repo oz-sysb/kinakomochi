@@ -3,18 +3,19 @@ namespace VendingMachine;
 
 class Tray
 {
-
     /**
      * 釣り銭トレイ内金額の合計
+     *
+     * @var integer
      */
-    private $_amount;
+    private $amount;
 
     /**
      * コンストラクタ
      */
     public function __construct()
     {
-        $this->_amount = 0;
+        $this->amount = 0;
     }
 
     /**
@@ -30,7 +31,7 @@ class Tray
     public function computeAmount($amount)
     {
         if (is_int($amount)) {
-            $this->_amount += $amount;
+            $this->amount += $amount;
 
             return true;
         }
@@ -45,6 +46,6 @@ class Tray
      */
     public function getAmount()
     {
-        return $this->_amount;
+        return $this->amount;
     }
 }
