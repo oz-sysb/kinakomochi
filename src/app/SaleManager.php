@@ -29,6 +29,6 @@ class SaleManager
         //在庫のじゅーすがある
         //$amountで返るじゅーすがあるかJuice_objから判断する
         //買えるものがなければvoidを返却する
-        
+        return 'hoge';
     }
 }
