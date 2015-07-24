@@ -1,11 +1,12 @@
 <?php
 namespace VendingMachine\existence;
 
-Interface DrinkInterface
+interface DrinkInterface
 {
-	/**
-	 * 名前の取得
-	 * @return string
-	 */
-  public function getName();
+    /**
+     * 名前の取得
+     *
+     * @return string
+     */
+    public function getName();
 }
