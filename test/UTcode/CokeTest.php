@@ -1,12 +1,12 @@
 <?php
 namespace VendingMachineUnitTest;
 
-use VendingMachine\existence as eee;
+use VendingMachine\existence\Coke;
 
 class CokeTest extends \PHPUnit_Framework_TestCase
 {
 	/**
-	 * @var eee\Coke
+	 * @var Coke
 	 */
 	private $coke;
 
@@ -15,7 +15,7 @@ class CokeTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function setUp()
 	{
-			$this->coke = new eee\Coke();
+			$this->coke = new Coke();
 	}
 
 	public function test_aaa()
