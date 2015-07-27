@@ -2,6 +2,7 @@
 namespace VendingMachineUnitTest;
 
 use VendingMachine\JuiceBox;
+use VendingMachine\existence\Coke;
 
 class JuiceBoxTest extends \PHPUnit_Framework_TestCase
 {
@@ -28,7 +29,7 @@ class JuiceBoxTest extends \PHPUnit_Framework_TestCase
      */
     public function confirmConstructor()
     {
-        $initData = ['コーラ' => ["price" => 120, "number" => 5]];
+        $initData = new Coke();
         $this->assertequals($initData, $this->juiceBox->getJuice());
     }
 

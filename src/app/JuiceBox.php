@@ -2,13 +2,14 @@
 namespace VendingMachine;
 
 use VendingMachine\existence\Coke;
+use VendingMachine\existence\DrinkInterface;
 
 class JuiceBox
 {
     /**
      * ジュース情報
      *
-     * @var array
+     * @var DrinkInterface
      */
     private $juice;
 
@@ -17,9 +18,7 @@ class JuiceBox
      */
     public function __construct()
     {
-        //ジュースの配列を持っている
-        //$this->cokes = [new Coke("コーラ", 120)] ;
-        $this->juice = new Coke() ;
+        $this->juice = new Coke();
     }
 
     /**
@@ -31,7 +30,7 @@ class JuiceBox
      */
     public function buyableJuice($amount)
     {
-        if($amount >= $this->juice->getPrice())
+        if ($amount >= $this->juice->getPrice())
         {
             return $this->juice->getName();
         }
@@ -46,6 +45,17 @@ class JuiceBox
         //$nameが管理している在庫のものだと確認（ここではコーラ）
         //$nameのものの在庫を正しく減らす必要がある
         $this->juice->computeStock(-1);
+
         return $this->juice;
+    }
+
+    public function getJuice()
+    {
+        return $this->juice;
+    }
+
+    public function setJuice($juice)
+    {
+        return $this->juice = $juice;
     }
 }

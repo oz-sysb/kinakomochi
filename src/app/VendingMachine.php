@@ -30,8 +30,8 @@ class VendingMachine
     {
         $this->moneyBox = new MoneyBox();
         $this->tray = new Tray();
-        $this->buyAbleJuice();
         $this->juiceBox = new JuiceBox();
+        $this->buyAbleJuice();
     }
 
     /**
@@ -84,4 +84,5 @@ class VendingMachine
     {
         return $this->juiceBox->buy($name);
     }
+
 }
