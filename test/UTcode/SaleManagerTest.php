@@ -43,8 +43,8 @@ class SaleManagerTest extends \PHPUnit_Framework_TestCase
      */
     public function confirmBuy()
     {
-        $initialStock = $this->saleManager->getJuice("コーラ")->getStockNumber();
+        $initialStock = $this->saleManager->getStockNumber("コーラ");
         $this->saleManager->buy("コーラ");
-        $this->assertEquals($initialStock - 1, $this->saleManager->getJuice("コーラ")->getStockNumber());
+        $this->assertEquals($initialStock - 1, $this->saleManager->getStockNumber("コーラ"));
     }
 }

@@ -14,13 +14,23 @@ class SaleManager
     private $juices;
 
     /**
+     * @var Stock
+     */
+    private $stock;
+
+
+    /**
      * コンストラクタ
      */
     public function __construct()
     {
+        $this->stock = new Stock();
+
+        $coke = new Coke();
         $this->juices = [
-            new Coke()
+            $coke
         ];
+        $this->stock->addItem($coke->getName(), 5);
     }
 
     /**
@@ -55,7 +65,7 @@ class SaleManager
         $juice = $this->getJuice($name);
         if ($juice)
         {
-            $juice->computeStock(-1);
+            $this->stock->addAmount($juice->getName(), -1);
         }
 
         return $juice;
@@ -78,5 +88,19 @@ class SaleManager
             }
         }
         return;
+    }
+
+    /**
+     * 在庫数を取得する
+     *
+     * @param string $name 名前
+     *
+     * @return int
+     */
+    public function getStockNumber($name)
+    {
+        $juice = $this->getJuice($name);
+
+        return $this->stock->getAmount($juice->getName());
     }
 }
