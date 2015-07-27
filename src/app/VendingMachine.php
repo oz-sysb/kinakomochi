@@ -24,7 +24,7 @@ class VendingMachine
     {
         $this->moneyBox = new MoneyBox();
         $this->tray = new Tray();
-        $this->chkBought();
+        $this->buyAbleJuice();
     }
 
     /**
