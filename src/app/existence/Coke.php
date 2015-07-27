@@ -14,18 +14,12 @@ class Coke implements DrinkInterface
     private $price;
 
     /**
-     * @var integer
-     */
-    private $stockNumber;
-
-    /**
      * コンストラクタ
      */
     public function __construct()
     {
         $this->name = "コーラ";
         $this->price = 120;
-        $this->stockNumber = 5;
     }
 
     /**
@@ -46,21 +40,5 @@ class Coke implements DrinkInterface
     public function getPrice()
     {
         return $this->price;
-    }
-
-    /**
-     * 在庫数を返す
-     *
-     * @return integer
-     */
-    public function getStockNumber()
-    {
-        return $this->stockNumber;
-    }
-
-    public function computeStock($stock)
-    {
-        $this->stockNumber += $stock;
-        return $this->stockNumber;
     }
 }

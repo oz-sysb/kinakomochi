@@ -42,15 +42,4 @@ class CokeTest extends \PHPUnit_Framework_TestCase
         $this->assertequals(120, $this->coke->getPrice());
     }
 
-    /**
-     * Unit Test: getStockNumber
-     *
-     * @return void
-     *
-     * @test
-     */
-    public function confirmGetStockNumber()
-    {
-        $this->assertequals(5, $this->coke->getStockNumber());
-    }
 }
