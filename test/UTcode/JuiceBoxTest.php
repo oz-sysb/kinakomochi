@@ -32,31 +32,4 @@ class JuiceBoxTest extends \PHPUnit_Framework_TestCase
         $initData = new Coke();
         $this->assertequals($initData, $this->juiceBox->getJuice("コーラ"));
     }
-
-    /**
-     * Unit Test: setJuice
-     * Unit Test: getJuice
-     *
-     * @param array $juice ジュース情報
-     *
-     * @return void
-     *
-     * @test
-     * @dataProvider juiceProvider
-     */
-    public function confirmSetGetJuice($juice)
-    {
-        $this->juiceBox->setJuice($juice);
-        $this->assertequals($juice, $this->juiceBox->getJuice("コーラ"));
-    }
-
-    /**
-     * @return array
-     */
-    public function juiceProvider()
-    {
-        return [
-            [['レッドブル' => ["price" => 200, "number" => 2]]],
-        ];
-    }
 }

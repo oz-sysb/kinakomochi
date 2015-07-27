@@ -66,13 +66,8 @@ class JuiceBox
             if ($juice->getName() == $name)
             {
                 return $juice;
-            }`
+            }
         }
         return;
-    }
-
-    public function setJuice($juice)
-    {
-        return $this->juices[0] = $juice;
     }
 }
