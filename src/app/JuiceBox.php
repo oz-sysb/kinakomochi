@@ -43,13 +43,22 @@ class JuiceBox
         return $buyableJuiceNames;
     }
 
+    /**
+     * ジュースの名前を受け取り、そのジュースの在庫を1減らす
+     *
+     * @param string $name ジュース名
+     *
+     * @return Juice|void
+     */
     public function buy($name)
     {
-        //$nameが管理している在庫のものだと確認（ここではコーラ）
-        //$nameのものの在庫を正しく減らす必要がある
-        $this->juices[0]->computeStock(-1);
+        $juice = $this->getJuice($name);
+        if ($juice)
+        {
+            $juice->computeStock(-1);
+        }
 
-        return $this->juices[0];
+        return $juice;
     }
 
     /**

@@ -30,6 +30,21 @@ class JuiceBoxTest extends \PHPUnit_Framework_TestCase
     public function confirmConstructor()
     {
         $initData = new Coke();
-        $this->assertequals($initData, $this->juiceBox->getJuice("コーラ"));
+        $this->assertEquals($initData, $this->juiceBox->getJuice("コーラ"));
+    }
+
+    /**
+     * Unit Test: buy
+     * 買えることを確認する
+     *
+     * @return void
+     *
+     * @test
+     */
+    public function confirmBuy()
+    {
+        $initialStock = $this->juiceBox->getJuice("コーラ")->getStockNumber();
+        $this->juiceBox->buy("コーラ");
+        $this->assertEquals($initialStock - 1, $this->juiceBox->getJuice("コーラ")->getStockNumber());
     }
 }
