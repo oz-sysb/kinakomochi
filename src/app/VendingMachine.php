@@ -24,6 +24,7 @@ class VendingMachine
     {
         $this->moneyBox = new MoneyBox();
         $this->tray = new Tray();
+        $this->chkBought();
     }
 
     /**
@@ -60,5 +61,16 @@ class VendingMachine
         $this->moneyBox->clearTotal();
 
         return $this->tray->getAmount();
+    }
+
+    /**
+     * 総計金額より購入できるジュースがあるか確認する
+     *
+     * @return string
+     */
+    public function buyAbleJuice()
+    {
+        $saleManager = new SaleManager();
+        return $saleManager->buyAbleJuice($this->_money_box->getTotal());
     }
 }
