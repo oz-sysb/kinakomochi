@@ -83,6 +83,6 @@ class VendingMachine
     public function chkBought()
     {
         $saleManager = new SaleManager();
-        return $saleManager->checkBought($this->_money_box->getTotal());
+        return $saleManager->buyAbleJuice($this->_money_box->getTotal());
     }
 }
