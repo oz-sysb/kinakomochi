@@ -11,14 +11,16 @@ class JuiceBox
      *
      * @var DrinkInterface
      */
-    private $juice;
+    private $juices;
 
     /**
      * コンストラクタ
      */
     public function __construct()
     {
-        $this->juice = new Coke();
+        $this->juices = [
+            new Coke()
+        ];
     }
 
     /**
@@ -26,36 +28,37 @@ class JuiceBox
      *
      * @param integer $amount 投入金額の総計
      *
-     * @return string
+     * @return array
      */
     public function buyableJuice($amount)
     {
-        if ($amount >= $this->juice->getPrice())
+        $buyableJuiceNames = [];
+        foreach($this->juices as $juice)
         {
-            return $this->juice->getName();
+            if ($juice->getPrice() <= $amount)
+            {
+                $buyableJuiceNames[] = $juice->getName();
+            }
         }
-        //在庫のじゅーすがある
-        //$amountで返るじゅーすがあるかJuice_objから判断する
-        //買えるものがなければvoidを返却する
-        return;
+        return $buyableJuiceNames;
     }
 
     public function buy($name)
     {
         //$nameが管理している在庫のものだと確認（ここではコーラ）
         //$nameのものの在庫を正しく減らす必要がある
-        $this->juice->computeStock(-1);
+        $this->juices[0]->computeStock(-1);
 
-        return $this->juice;
+        return $this->juices[0];
     }
 
     public function getJuice()
     {
-        return $this->juice;
+        return $this->juices[0];
     }
 
     public function setJuice($juice)
     {
-        return $this->juice = $juice;
+        return $this->juices[0] = $juice;
     }
 }

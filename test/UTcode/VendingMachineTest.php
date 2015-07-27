@@ -131,10 +131,10 @@ class VendingMachineTest extends \PHPUnit_Framework_TestCase
     public function buyableProvider()
     {
         return [
-            [[], null],
-            [[100, 10], null],
-            [[100, 10, 10], "コーラ"],
-            [[100, 10, 10, 10], "コーラ"]
+            [[], []],
+            [[100, 10], []],
+            [[100, 10, 10], ["コーラ"]],
+            [[100, 10, 10, 10], ["コーラ"]]
         ];
     }
 }
