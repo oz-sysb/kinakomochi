@@ -4,7 +4,7 @@ namespace VendingMachine;
 use VendingMachine\existence\Coke;
 use VendingMachine\existence\DrinkInterface;
 
-class JuiceBox
+class SaleManager
 {
     /**
      * ジュース情報

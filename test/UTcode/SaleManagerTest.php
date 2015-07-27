@@ -1,22 +1,22 @@
 <?php
 namespace VendingMachineUnitTest;
 
-use VendingMachine\JuiceBox;
+use VendingMachine\SaleManager;
 use VendingMachine\existence\Coke;
 
-class JuiceBoxTest extends \PHPUnit_Framework_TestCase
+class SaleManagerTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @var JuiceBox
+     * @var SaleManager
      */
-    private $juiceBox;
+    private $saleManager;
 
     /**
      * @setup
      */
     public function setUp()
     {
-        $this->juiceBox = new JuiceBox();
+        $this->saleManager = new SaleManager();
     }
 
     /**
@@ -30,7 +30,7 @@ class JuiceBoxTest extends \PHPUnit_Framework_TestCase
     public function confirmConstructor()
     {
         $initData = new Coke();
-        $this->assertEquals($initData, $this->juiceBox->getJuice("コーラ"));
+        $this->assertEquals($initData, $this->saleManager->getJuice("コーラ"));
     }
 
     /**
@@ -43,8 +43,8 @@ class JuiceBoxTest extends \PHPUnit_Framework_TestCase
      */
     public function confirmBuy()
     {
-        $initialStock = $this->juiceBox->getJuice("コーラ")->getStockNumber();
-        $this->juiceBox->buy("コーラ");
-        $this->assertEquals($initialStock - 1, $this->juiceBox->getJuice("コーラ")->getStockNumber());
+        $initialStock = $this->saleManager->getJuice("コーラ")->getStockNumber();
+        $this->saleManager->buy("コーラ");
+        $this->assertEquals($initialStock - 1, $this->saleManager->getJuice("コーラ")->getStockNumber());
     }
 }
