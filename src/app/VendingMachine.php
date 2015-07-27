@@ -18,6 +18,12 @@ class VendingMachine
     public $tray;
 
     /**
+     * ジュースボックス
+     *
+     * @var JuiceBox
+     */
+    public $juiceBox;
+    /**
      * コンストラクタ
      */
     public function __construct()
@@ -25,6 +31,7 @@ class VendingMachine
         $this->moneyBox = new MoneyBox();
         $this->tray = new Tray();
         $this->buyAbleJuice();
+        $this->juiceBox = new JuiceBox();
     }
 
     /**
@@ -70,7 +77,11 @@ class VendingMachine
      */
     public function buyAbleJuice()
     {
-        $saleManager = new SaleManager();
-        return $saleManager->buyAbleJuice($this->moneyBox->getTotal());
+        return $this->juiceBox->buyableJuice($this->moneyBox->getTotal());
+    }
+
+    public function buy($name)
+    {
+        return $this->juiceBox->buy($name);
     }
 }

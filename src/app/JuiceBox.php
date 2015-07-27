@@ -1,6 +1,8 @@
 <?php
 namespace VendingMachine;
 
+use VendingMachine\existence\Coke;
+
 class JuiceBox
 {
     /**
@@ -16,31 +18,34 @@ class JuiceBox
     public function __construct()
     {
         //ジュースの配列を持っている
-        $this->juice = ['コーラ' => ["price" => 120, "number" => 5]];
+        //$this->cokes = [new Coke("コーラ", 120)] ;
+        $this->juice = new Coke() ;
     }
 
     /**
-     * ジュースの情報を格納する
-     * 現状ではこのメソッド呼ぶと初期状態が破棄されます。
+     * 購入できるジュースの名前を返却する
      *
-     * @param array $juice ジュース情報
+     * @param integer $amount 投入金額の総計
      *
-     * @TODO コンストラクタで格納するならこれ要らないのでは。
-     *
-     * @return void
+     * @return string
      */
-    public function setJuice($juice)
+    public function buyableJuice($amount)
     {
-        $this->juice = $juice;
+        if($amount >= $this->juice->getPrice())
+        {
+            return $this->juice->getName();
+        }
+        //在庫のじゅーすがある
+        //$amountで返るじゅーすがあるかJuice_objから判断する
+        //買えるものがなければvoidを返却する
+        return;
     }
 
-    /**
-     * ジュースの情報を返す
-     *
-     * @return array
-     */
-    public function getJuice()
+    public function buy($name)
     {
+        //$nameが管理している在庫のものだと確認（ここではコーラ）
+        //$nameのものの在庫を正しく減らす必要がある
+        $this->juice->computeStock(-1);
         return $this->juice;
     }
 }

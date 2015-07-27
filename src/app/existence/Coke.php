@@ -57,4 +57,10 @@ class Coke implements DrinkInterface
     {
         return $this->stockNumber;
     }
+
+    public function computeStock($stock)
+    {
+        $this->stockNumber += $stock;
+        return $this->stockNumber;
+    }
 }
