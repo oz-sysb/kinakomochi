@@ -33,7 +33,7 @@ class JuiceBox
     public function buyableJuice($amount)
     {
         $buyableJuiceNames = [];
-        foreach($this->juices as $juice)
+        foreach ($this->juices as $juice)
         {
             if ($juice->getPrice() <= $amount)
             {
@@ -52,9 +52,23 @@ class JuiceBox
         return $this->juices[0];
     }
 
-    public function getJuice()
+    /**
+     * ジュースを取得する
+     *
+     * @param string $name ジュースの名前
+     *
+     * @return Juice|void
+     */
+    public function getJuice($name)
     {
-        return $this->juices[0];
+        foreach ($this->juices as $juice)
+        {
+            if ($juice->getName() == $name)
+            {
+                return $juice;
+            }`
+        }
+        return;
     }
 
     public function setJuice($juice)

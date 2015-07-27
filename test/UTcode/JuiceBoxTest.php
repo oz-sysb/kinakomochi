@@ -30,7 +30,7 @@ class JuiceBoxTest extends \PHPUnit_Framework_TestCase
     public function confirmConstructor()
     {
         $initData = new Coke();
-        $this->assertequals($initData, $this->juiceBox->getJuice());
+        $this->assertequals($initData, $this->juiceBox->getJuice("コーラ"));
     }
 
     /**
@@ -47,7 +47,7 @@ class JuiceBoxTest extends \PHPUnit_Framework_TestCase
     public function confirmSetGetJuice($juice)
     {
         $this->juiceBox->setJuice($juice);
-        $this->assertequals($juice, $this->juiceBox->getJuice());
+        $this->assertequals($juice, $this->juiceBox->getJuice("コーラ"));
     }
 
     /**
