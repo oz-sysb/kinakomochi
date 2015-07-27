@@ -47,4 +47,17 @@ class SaleManagerTest extends \PHPUnit_Framework_TestCase
         $this->saleManager->buy("コーラ");
         $this->assertEquals($initialStock - 1, $this->saleManager->getStockNumber("コーラ"));
     }
+
+
+    /**
+     * Unit Test: getStockNumber
+     *
+     * @return void
+     *
+     * @test
+     */
+    public function confirmInitialStockNumber()
+    {
+        $this->assertequals(5, $this->saleManager->getStockNumber("コーラ"));
+    }
 }
