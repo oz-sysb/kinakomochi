@@ -36,7 +36,7 @@ class VendingMachine
     {
         $this->_money_box = new MoneyBox();
         $this->tray = new Tray();
-        $this->chkBought();
+        $this->buyAbleJuice();
     }
 
     /**
