@@ -19,7 +19,7 @@ class SaleManagerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Unit Test: validateMoney
+     * Unit Test: saleManager
      *
      * @param integer $money    お金
      *
@@ -30,7 +30,7 @@ class SaleManagerTest extends \PHPUnit_Framework_TestCase
      */
     public function checkPurchaseTest($money)
     {
-        $result = $this->saleManager->checkBought($money);
+        $result = $this->saleManager->buyAbleJuice($money);
         $this->assertEquals('hoge', $result);
     }
 

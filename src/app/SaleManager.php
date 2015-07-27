@@ -17,7 +17,7 @@ class SaleManager
      *
      * @return string
      */
-    public function checkBought($amount)
+    public function buyAbleJuice($amount)
     {
 
         //在庫のじゅーすがある
