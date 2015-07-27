@@ -2,6 +2,7 @@
 namespace VendingMachineUnitTest;
 
 use VendingMachine\VendingMachine;
+use VendingMachine\existence\Coke;
 
 class VendingMachineTest extends \PHPUnit_Framework_TestCase
 {
@@ -135,6 +136,41 @@ class VendingMachineTest extends \PHPUnit_Framework_TestCase
             [[100, 10], []],
             [[100, 10, 10], ["コーラ"]],
             [[100, 10, 10, 10], ["コーラ"]]
+        ];
+    }
+
+
+    /**
+     * Unit Test: buyJuice
+     *
+     * @param array  $insertMoney 投入するお金の配列
+     * @param string $juiceName   買うジュースの名前
+     * @param string $expected    期待する結果
+     *
+     * @return void
+     *
+     * @test
+     * @dataProvider buyProvider
+     */
+    public function confirmBuyJuice($insertMoney, $juiceName, $expected)
+    {
+        foreach ($insertMoney as $insertMoneyItem)
+        {
+            $this->vendingMachine->takeMoney($insertMoneyItem);
+        }
+        $this->assertEquals($expected, $this->vendingMachine->buyJuice($juiceName));
+    }
+
+    /**
+     * @return array
+     */
+    public function buyProvider()
+    {
+        return [
+            [[],                "コーラ", null],
+            [[100, 10],         "コーラ", null],
+            [[100, 10, 10],     "コーラ", new Coke()],
+            [[100, 10, 10, 10], "コーラ", new Coke()]
         ];
     }
 }

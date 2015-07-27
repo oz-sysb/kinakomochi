@@ -73,16 +73,28 @@ class VendingMachine
     /**
      * 総計金額より購入できるジュースがあるか確認する
      *
-     * @return string
+     * @return array
      */
     public function buyableJuice()
     {
         return $this->saleManager->buyableJuice($this->moneyBox->getTotal());
     }
 
-    public function buy($name)
+    /**
+     * ジュースの名前を受け取り、そのジュースの在庫を1減らす
+     *
+     * @param string $name ジュースの名前
+     *
+     * @return Juice|void
+     */
+    public function buyJuice($name)
     {
-        return $this->saleManager->buy($name);
+        $buyableJuices = $this->buyableJuice();
+        if (in_array($name, $buyableJuices))
+        {
+            return $this->saleManager->buy($name);
+        }
+        return;
     }
 
 }
