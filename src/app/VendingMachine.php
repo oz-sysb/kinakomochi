@@ -71,6 +71,6 @@ class VendingMachine
     public function buyAbleJuice()
     {
         $saleManager = new SaleManager();
-        return $saleManager->buyAbleJuice($this->_money_box->getTotal());
+        return $saleManager->buyAbleJuice($this->moneyBox->getTotal());
     }
 }
