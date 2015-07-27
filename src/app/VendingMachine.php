@@ -75,7 +75,7 @@ class VendingMachine
      *
      * @return string
      */
-    public function buyAbleJuice()
+    public function buyableJuice()
     {
         return $this->juiceBox->buyableJuice($this->moneyBox->getTotal());
     }

@@ -104,4 +104,37 @@ class VendingMachineTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertEquals(0, $this->vendingMachine->payBack());
     }
+
+    /**
+     * Unit Test: buyableJuice
+     *
+     * @param array  $insertMoney 投入するお金の配列
+     * @param string $expected    期待する結果
+     *
+     * @return void
+     *
+     * @test
+     * @dataProvider buyableProvider
+     */
+    public function confirmBuyableJuice($insertMoney, $expected)
+    {
+        foreach ($insertMoney as $insertMoneyItem)
+        {
+            $this->vendingMachine->takeMoney($insertMoneyItem);
+        }
+        $this->assertEquals($expected, $this->vendingMachine->buyableJuice());
+    }
+
+    /**
+     * @return array
+     */
+    public function buyableProvider()
+    {
+        return [
+            [[], null],
+            [[100, 10], null],
+            [[100, 10, 10], "コーラ"],
+            [[100, 10, 10, 10], "コーラ"]
+        ];
+    }
 }
