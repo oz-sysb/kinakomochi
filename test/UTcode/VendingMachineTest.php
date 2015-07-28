@@ -173,25 +173,25 @@ class VendingMachineTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Unit Test: buyJuice
+     * Unit Test: changeTrayTest
      *
      * @param array   $insertMoney    投入するお金の配列
      * @param string  $juiceName      買うジュースの名前
      * @param string  $expected       期待する結果
-     * @param integer $remainingMoney おつり
+     * @param integer $change おつり
      *
      * @return void
      *
      * @test
      * @dataProvider buyProvider
      */
-    public function confirmRemainingMoney($insertMoney, $juiceName, $expected, $remainingMoney)
+    public function confirmChange($insertMoney, $juiceName, $expected, $change)
     {
         foreach ($insertMoney as $insertMoneyItem) {
             $this->vendingMachine->takeMoney($insertMoneyItem);
         }
         $this->assertEquals($expected, $this->vendingMachine->buyJuice($juiceName));
-        $this->assertEquals($remainingMoney, $this->vendingMachine->getTotal());
+        $this->assertEquals($change, $this->vendingMachine->getTotal());
     }
 
 
