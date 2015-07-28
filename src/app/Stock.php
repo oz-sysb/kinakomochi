@@ -4,44 +4,38 @@ namespace VendingMachine;
 class Stock
 {
     /**
+     * 在庫リスト
+     *
      * @var array
      */
-    private $amounts;
+    private $stockList;
 
     /**
      * コンストラクタ
      */
     public function __construct()
     {
-        $this->amounts = [];
+        $this->stockList = [];
     }
 
     /**
-     * 管理する商品を追加する
+     * 在庫を変更する
      *
-     * @param string $name 名前
-     * @param int $amount 在庫数
+     * @param string $name   名前
+     * @param int    $amount 追加する本数(負の値の場合在庫を減らす)
+     * @fixme 管理対象はジュースオブジェクトにしたいなあ
      *
-     * @return void
+     * @return array 在庫リスト
      */
-    public function addItem($name, $amount)
+    public function modStock($name, $amount)
     {
-        $this->amounts[$name] = $amount;
-    }
-
-    /**
-     * 在庫数を増やす
-     *
-     * @param string
-     * @param int $amount 追加する数
-     *
-     * @return int
-     *
-     * @FIXME メソッド名を適切なものに変えたい
-     */
-    public function addAmount($name, $amount)
-    {
-        return $this->amounts[$name] += $amount;
+        if (isset($this->stockList[$name])) {
+            $this->stockList[$name] += $amount;
+        }
+        else {
+            $this->stockList[$name] = $amount;
+        }
+        return $this->stockList;
     }
 
     /**
@@ -53,6 +47,9 @@ class Stock
      */
     public function getAmount($name)
     {
-        return $this->amounts[$name];
+        if (isset($this->stockList[$name])) {
+            return $this->stockList[$name];
+        }
+        return 0;
     }
 }
