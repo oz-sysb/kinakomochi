@@ -178,7 +178,7 @@ class VendingMachineTest extends \PHPUnit_Framework_TestCase
      * @param array   $insertMoney    投入するお金の配列
      * @param string  $juiceName      買うジュースの名前
      * @param string  $expected       期待する結果
-     * @param integer $change おつり
+     * @param integer $change         おつり
      *
      * @return void
      *
