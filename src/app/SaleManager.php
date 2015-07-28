@@ -64,8 +64,15 @@ class SaleManager
         if ($juice) {
             $this->stock->addAmount($juice->getName(), -1);
         }
-
         return $juice;
+    }
+
+    public function getPrice()
+    {
+        foreach ($this->juices as $juice) {
+           $price = $juice->getPrice();
+        }
+        return $price;
     }
 
     /**

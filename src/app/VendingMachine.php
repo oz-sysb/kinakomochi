@@ -91,8 +91,28 @@ class VendingMachine
     {
         $buyableJuices = $this->buyableJuice();
         if (in_array($name, $buyableJuices)) {
+
+            $this->computeTotal();
             return $this->saleManager->buy($name);
         }
         return;
+    }
+
+    /**
+     * 総計金額から購入した物の代金を減額する
+     *
+     * @param integer $price 購入金額
+     */
+    public function computeTotal()
+    {
+        return $this->moneyBox->addTotal(-$this->saleManager->getPrice());
+    }
+
+    /**
+     * 総計金額を取得する
+     */
+    public function getTotal()
+    {
+        return $this->moneyBox->getTotal();
     }
 }

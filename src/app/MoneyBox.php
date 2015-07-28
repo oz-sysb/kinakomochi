@@ -28,7 +28,6 @@ class MoneyBox
     public function addTotal($amount)
     {
         $this->total += $amount;
-
         return $this->total;
     }
 
