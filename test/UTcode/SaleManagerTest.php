@@ -4,6 +4,8 @@ namespace VendingMachineUnitTest;
 use VendingMachine\existence\DrinkInterface;
 use VendingMachine\SaleManager;
 use VendingMachine\existence\Coke;
+use VendingMachine\existence\RedBull;
+use VendingMachine\existence\Water;
 
 class SaleManagerTest extends \PHPUnit_Framework_TestCase
 {
@@ -43,17 +45,63 @@ class SaleManagerTest extends \PHPUnit_Framework_TestCase
     public function providerForBuyableJuice()
     {
         return [
-            [119, []],
-            [120, ['コーラ']],
-            [121, ['コーラ']],
+            [99,  []],
+            [100, ['水']],
+            [101, ['水']],
+            [119, ['水']],
+            [120, ['コーラ', '水']],
+            [121, ['コーラ', '水']],
+            [199, ['コーラ', '水']],
+            [200, ['コーラ', 'レッドブル', '水']],
+            [201, ['コーラ', 'レッドブル', '水']],
         ];
     }
 
     /**
-     * Unit Test: buy
-     * 買えることを確認する
+     * Unit Test: buyableJuice_2
+     * 在庫が無くて買えないパターン
      *
-     * @param string $juiceName ジュース名
+     * @param integer $buyCount  購入回数
+     * @param integer $amount    投入金額
+     * @param string  $juiceName ジュース名
+     * @param array   $expected  期待結果
+     *
+     * @return void
+     *
+     * @test
+     * @dataProvider providerForBuyableJuice_2
+     */
+    public function confirmBuyableJuice_2($buyCount, $amount, $juiceName, $expected)
+    {
+        for ($i = 0; $i < $buyCount; $i++) {
+            $this->saleManager->buy($juiceName);
+        }
+        $this->assertEquals($expected, $this->saleManager->buyableJuice($amount));
+    }
+
+    /**
+     * @return array
+     */
+    public function providerForBuyableJuice_2()
+    {
+        return [
+            [4, 500, 'コーラ',     ['コーラ', 'レッドブル', '水']],
+            [5, 500, 'コーラ',     ['レッドブル', '水']],
+            [6, 500, 'コーラ',     ['レッドブル', '水']],
+            [4, 500, 'レッドブル', ['コーラ', 'レッドブル', '水']],
+            [5, 500, 'レッドブル', ['コーラ', '水']],
+            [6, 500, 'レッドブル', ['コーラ', '水']],
+            [4, 500, '水',          ['コーラ', 'レッドブル', '水']],
+            [5, 500, '水',          ['コーラ', 'レッドブル']],
+            [6, 500, '水',          ['コーラ', 'レッドブル']],
+        ];
+    }
+
+
+    /**
+     * Unit Test: buy
+     *
+     * @param string $juiceName        ジュース名
      *
      * @return void
      *
@@ -64,7 +112,11 @@ class SaleManagerTest extends \PHPUnit_Framework_TestCase
     {
         $initialStock = $this->saleManager->getStockNumber($juiceName);
         $this->saleManager->buy($juiceName);
-        $this->assertEquals($initialStock - 1, $this->saleManager->getStockNumber($juiceName));
+        if ($initialStock > 0) {
+            $this->assertEquals($initialStock - 1, $this->saleManager->getStockNumber($juiceName));
+        } else {
+            $this->assertEquals($initialStock, $this->saleManager->getStockNumber($juiceName));
+        }
     }
 
     /**
@@ -74,6 +126,9 @@ class SaleManagerTest extends \PHPUnit_Framework_TestCase
     {
         return [
             ['コーラ'],
+            ['レッドブル'],
+            ['水'],
+            ['ウォッカ'],
         ];
     }
 
@@ -100,6 +155,8 @@ class SaleManagerTest extends \PHPUnit_Framework_TestCase
     {
         return [
             ['コーラ', new Coke()],
+            ['レッドブル', new RedBull()],
+            ['水', new Water()],
             ['ウォッカ', null],
         ];
     }
@@ -127,6 +184,8 @@ class SaleManagerTest extends \PHPUnit_Framework_TestCase
     {
         return [
             ['コーラ', 5],
+            ['レッドブル', 5],
+            ['水', 5],
             ['ウォッカ', 0],
         ];
     }
