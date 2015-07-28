@@ -173,7 +173,7 @@ class VendingMachineTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Unit Test: changeTrayTest
+     * Unit Test: changeTest
      *
      * @param array   $insertMoney    投入するお金の配列
      * @param string  $juiceName      買うジュースの名前
