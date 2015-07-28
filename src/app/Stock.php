@@ -31,8 +31,7 @@ class Stock
     {
         if (isset($this->stockList[$name])) {
             $this->stockList[$name] += $amount;
-        }
-        else {
+        } else {
             $this->stockList[$name] = $amount;
         }
         return $this->stockList;

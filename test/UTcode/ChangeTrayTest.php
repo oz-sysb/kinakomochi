@@ -3,7 +3,7 @@ namespace VendingMachineUnitTest;
 
 use VendingMachine\ChangeTray;
 
-class changeTrayTest extends \PHPUnit_Framework_TestCase
+class ChangeTrayTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @var ChangeTray
