@@ -11,14 +11,6 @@ class MoneyBox
     private $total;
 
     /**
-     * コンストラクタ
-     */
-    public function __construct()
-    {
-        $this->clearTotal();
-    }
-
-    /**
      * 投入金額を加算する
      *
      * @param integer $amount 投入金額
