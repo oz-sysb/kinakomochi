@@ -6,14 +6,14 @@ class Stock
     /**
      * @var array
      */
-    private $_amounts;
+    private $amounts;
 
     /**
      * コンストラクタ
      */
     public function __construct()
     {
-        $this->_amounts = [];
+        $this->amounts = [];
     }
 
     /**
@@ -26,7 +26,7 @@ class Stock
      */
     public function addItem($name, $amount)
     {
-        $this->_amounts[$name] = $amount;
+        $this->amounts[$name] = $amount;
     }
 
     /**
@@ -41,7 +41,7 @@ class Stock
      */
     public function addAmount($name, $amount)
     {
-        return $this->_amounts[$name] += $amount;
+        return $this->amounts[$name] += $amount;
     }
 
     /**
@@ -53,6 +53,6 @@ class Stock
      */
     public function getAmount($name)
     {
-        return $this->_amounts[$name];
+        return $this->amounts[$name];
     }
 }

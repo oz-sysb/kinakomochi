@@ -43,10 +43,8 @@ class SaleManager
     public function buyableJuice($amount)
     {
         $buyableJuiceNames = [];
-        foreach ($this->juices as $juice)
-        {
-            if ($juice->getPrice() <= $amount)
-            {
+        foreach ($this->juices as $juice) {
+            if ($juice->getPrice() <= $amount) {
                 $buyableJuiceNames[] = $juice->getName();
             }
         }
@@ -63,8 +61,7 @@ class SaleManager
     public function buy($name)
     {
         $juice = $this->getJuice($name);
-        if ($juice)
-        {
+        if ($juice) {
             $this->stock->addAmount($juice->getName(), -1);
         }
 
@@ -80,10 +77,8 @@ class SaleManager
      */
     public function getJuice($name)
     {
-        foreach ($this->juices as $juice)
-        {
-            if ($juice->getName() == $name)
-            {
+        foreach ($this->juices as $juice) {
+            if ($juice->getName() == $name) {
                 return $juice;
             }
         }

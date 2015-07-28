@@ -119,8 +119,7 @@ class VendingMachineTest extends \PHPUnit_Framework_TestCase
      */
     public function confirmBuyableJuice($insertMoney, $expected)
     {
-        foreach ($insertMoney as $insertMoneyItem)
-        {
+        foreach ($insertMoney as $insertMoneyItem) {
             $this->vendingMachine->takeMoney($insertMoneyItem);
         }
         $this->assertEquals($expected, $this->vendingMachine->buyableJuice());
@@ -154,8 +153,7 @@ class VendingMachineTest extends \PHPUnit_Framework_TestCase
      */
     public function confirmBuyJuice($insertMoney, $juiceName, $expected)
     {
-        foreach ($insertMoney as $insertMoneyItem)
-        {
+        foreach ($insertMoney as $insertMoneyItem) {
             $this->vendingMachine->takeMoney($insertMoneyItem);
         }
         $this->assertEquals($expected, $this->vendingMachine->buyJuice($juiceName));

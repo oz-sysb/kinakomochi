@@ -41,5 +41,4 @@ class CokeTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertequals(120, $this->coke->getPrice());
     }
-
 }

@@ -90,11 +90,9 @@ class VendingMachine
     public function buyJuice($name)
     {
         $buyableJuices = $this->buyableJuice();
-        if (in_array($name, $buyableJuices))
-        {
+        if (in_array($name, $buyableJuices)) {
             return $this->saleManager->buy($name);
         }
         return;
     }
-
 }
