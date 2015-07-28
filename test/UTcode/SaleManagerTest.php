@@ -69,9 +69,9 @@ class SaleManagerTest extends \PHPUnit_Framework_TestCase
      * @return void
      *
      * @test
-     * @dataProvider providerForBuyableJuice_2
+     * @dataProvider providerForBuyableJuice2
      */
-    public function confirmBuyableJuice_2($buyCount, $amount, $juiceName, $expected)
+    public function confirmBuyableJuice2($buyCount, $amount, $juiceName, $expected)
     {
         for ($i = 0; $i < $buyCount; $i++) {
             $this->saleManager->buy($juiceName);
@@ -82,7 +82,7 @@ class SaleManagerTest extends \PHPUnit_Framework_TestCase
     /**
      * @return array
      */
-    public function providerForBuyableJuice_2()
+    public function providerForBuyableJuice2()
     {
         return [
             [4, 500, 'コーラ',     ['コーラ', 'レッドブル', '水']],
