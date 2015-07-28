@@ -85,14 +85,27 @@ class VendingMachine
      *
      * @param string $name ジュースの名前
      *
-     * @return Juice|void
+     * @return null|Juice
      */
     public function buyJuice($name)
     {
         $buyableJuices = $this->buyableJuice();
-        if (in_array($name, $buyableJuices)) {
-            return $this->saleManager->buy($name);
+        if (! in_array($name, $buyableJuices)) {
+            return null;
         }
-        return;
+        $juice = $this->saleManager->buy($name);
+        $this->moneyBox->addTotal(-$juice->getPrice());
+        return $juice;
+
+    }
+
+    /**
+     * 総計金額を取得する
+     *
+     * @return integer
+     */
+    public function getTotal()
+    {
+        return $this->moneyBox->getTotal();
     }
 }

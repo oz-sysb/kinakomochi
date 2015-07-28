@@ -64,7 +64,6 @@ class SaleManager
         if ($juice) {
             $this->stock->addAmount($juice->getName(), -1);
         }
-
         return $juice;
     }
 
