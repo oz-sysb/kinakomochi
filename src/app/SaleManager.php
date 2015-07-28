@@ -30,7 +30,7 @@ class SaleManager
         $this->juices = [
             $coke
         ];
-        $this->stock->addItem($coke->getName(), 5);
+        $this->stock->modStock($coke->getName(), 5);
     }
 
     /**
@@ -62,7 +62,7 @@ class SaleManager
     {
         $juice = $this->getJuice($name);
         if ($juice) {
-            $this->stock->addAmount($juice->getName(), -1);
+            $this->stock->modStock($juice->getName(), -1);
         }
 
         return $juice;
