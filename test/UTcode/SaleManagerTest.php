@@ -2,6 +2,7 @@
 namespace VendingMachineUnitTest;
 
 use VendingMachine\SaleManager;
+use VendingMachine\existence\Coke;
 
 class SaleManagerTest extends \PHPUnit_Framework_TestCase
 {
@@ -19,28 +20,44 @@ class SaleManagerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Unit Test: saleManager
-     *
-     * @param integer $money    お金
+     * 初期状態の確認
      *
      * @return void
      *
      * @test
-     * @dataProvider allAmountInjector
+     * @fixme 初期値をテストコードが知っているダメな例
      */
-    public function checkPurchaseTest($money)
+    public function confirmConstructor()
     {
-        $result = $this->saleManager->buyAbleJuice($money);
-        $this->assertEquals('hoge', $result);
+        $initData = new Coke();
+        $this->assertEquals($initData, $this->saleManager->getJuice("コーラ"));
     }
 
     /**
-     * @return array
+     * Unit Test: buy
+     * 買えることを確認する
+     *
+     * @return void
+     *
+     * @test
      */
-    public function allAmountInjector()
+    public function confirmBuy()
     {
-        return [
-            [100]
-        ];
+        $initialStock = $this->saleManager->getStockNumber("コーラ");
+        $this->saleManager->buy("コーラ");
+        $this->assertEquals($initialStock - 1, $this->saleManager->getStockNumber("コーラ"));
+    }
+
+
+    /**
+     * Unit Test: getStockNumber
+     *
+     * @return void
+     *
+     * @test
+     */
+    public function confirmInitialStockNumber()
+    {
+        $this->assertequals(5, $this->saleManager->getStockNumber("コーラ"));
     }
 }

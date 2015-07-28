@@ -9,4 +9,11 @@ interface DrinkInterface
      * @return string
      */
     public function getName();
+
+    /**
+     * 値段の取得
+     *
+     * @return integer
+     */
+    public function getPrice();
 }
