@@ -1,7 +1,7 @@
 <?php
 namespace VendingMachine;
 
-class Tray
+class ChangeTray
 {
     /**
      * 釣り銭トレイ内金額の合計

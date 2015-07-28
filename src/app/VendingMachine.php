@@ -13,23 +13,24 @@ class VendingMachine
     /**
      * 釣り銭トレイ
      *
-     * @var Tray
+     * @var ChangeTray
      */
-    public $tray;
+    public $changeTray;
 
     /**
-     * ジュースボックス
+     * 購入管理
      *
      * @var SaleManager
      */
     public $saleManager;
+
     /**
      * コンストラクタ
      */
     public function __construct()
     {
-        $this->moneyBox = new MoneyBox();
-        $this->tray = new Tray();
+        $this->moneyBox    = new MoneyBox();
+        $this->changeTray  = new changeTray();
         $this->saleManager = new SaleManager();
         $this->buyableJuice();
     }
@@ -50,7 +51,7 @@ class VendingMachine
         if ($money_check->validateMoney($amount)) {
             return ($this->moneyBox->addTotal($amount));
         }
-        $this->tray->computeAmount($amount);
+        $this->changeTray->computeAmount($amount);
 
         return $this->moneyBox->getTotal();
     }
@@ -64,10 +65,10 @@ class VendingMachine
      */
     public function payBack()
     {
-        $this->tray->computeAmount($this->moneyBox->getTotal());
+        $this->changeTray->computeAmount($this->moneyBox->getTotal());
         $this->moneyBox->clearTotal();
 
-        return $this->tray->getAmount();
+        return $this->changeTray->getAmount();
     }
 
     /**
