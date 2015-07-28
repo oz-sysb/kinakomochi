@@ -165,10 +165,10 @@ class VendingMachineTest extends \PHPUnit_Framework_TestCase
     public function buyProvider()
     {
         return [
-//            [[],                "コーラ", null],
-//            [[100, 10],         "コーラ", null],
-//            [[100, 10, 10],     "コーラ", new Coke()],
-            [[100, 10, 10, 10], "コーラ", new Coke()]
+            [[],                "コーラ", null, 0],
+            [[100, 10],         "コーラ", null, 110],
+            [[100, 10, 10],     "コーラ", new Coke(), 0],
+            [[100, 10, 10, 10], "コーラ", new Coke(), 10]
         ];
     }
 
@@ -185,7 +185,7 @@ class VendingMachineTest extends \PHPUnit_Framework_TestCase
      * @test
      * @dataProvider buyProvider
      */
-    public function confirmRemainingMoney($insertMoney, $juiceName, $expected, $remainingMoney = 10)
+    public function confirmRemainingMoney($insertMoney, $juiceName, $expected, $remainingMoney)
     {
         foreach ($insertMoney as $insertMoneyItem) {
             $this->vendingMachine->takeMoney($insertMoneyItem);
@@ -193,4 +193,7 @@ class VendingMachineTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $this->vendingMachine->buyJuice($juiceName));
         $this->assertEquals($remainingMoney, $this->vendingMachine->getTotal());
     }
+
+
+
 }

@@ -67,14 +67,6 @@ class SaleManager
         return $juice;
     }
 
-    public function getPrice()
-    {
-        foreach ($this->juices as $juice) {
-           $price = $juice->getPrice();
-        }
-        return $price;
-    }
-
     /**
      * ジュースを取得する
      *
