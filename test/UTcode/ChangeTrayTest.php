@@ -1,21 +1,21 @@
 <?php
 namespace VendingMachineUnitTest;
 
-use VendingMachine\Tray;
+use VendingMachine\ChangeTray;
 
-class TrayTest extends \PHPUnit_Framework_TestCase
+class changeTrayTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @var Tray
+     * @var ChangeTray
      */
-    private $tray;
+    private $changeTray;
 
     /**
      * @setup
      */
     public function setUp()
     {
-        $this->tray = new Tray();
+        $this->changeTray = new ChangeTray();
     }
 
     /**
@@ -31,7 +31,7 @@ class TrayTest extends \PHPUnit_Framework_TestCase
      */
     public function confirmComputeAmount($add, $expected)
     {
-        $this->assertEquals($expected, $this->tray->computeAmount($add));
+        $this->assertEquals($expected, $this->changeTray->computeAmount($add));
     }
 
     /**
@@ -63,9 +63,9 @@ class TrayTest extends \PHPUnit_Framework_TestCase
      */
     public function confirmGetAmount($refund1, $refund2, $change)
     {
-        $this->tray->computeAmount($refund1);
-        $this->tray->computeAmount($refund2);
-        $this->assertEquals($change, $this->tray->getAmount());
+        $this->changeTray->computeAmount($refund1);
+        $this->changeTray->computeAmount($refund2);
+        $this->assertEquals($change, $this->changeTray->getAmount());
     }
 
     /**
