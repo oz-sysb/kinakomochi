@@ -73,7 +73,7 @@ class SaleManager
      *
      * @param string $name ジュースの名前
      *
-     * @return Juice|void
+     * @return Juice|null
      */
     public function getJuice($name)
     {
@@ -82,7 +82,7 @@ class SaleManager
                 return $juice;
             }
         }
-        return;
+        return null;
     }
 
     /**
@@ -95,6 +95,9 @@ class SaleManager
     public function getStockNumber($name)
     {
         $juice = $this->getJuice($name);
+        if (is_null($juice)) {
+            return 0;
+        }
 
         return $this->stock->getAmount($juice->getName());
     }
