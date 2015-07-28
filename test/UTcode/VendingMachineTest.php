@@ -193,7 +193,4 @@ class VendingMachineTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $this->vendingMachine->buyJuice($juiceName));
         $this->assertEquals($change, $this->vendingMachine->getTotal());
     }
-
-
-
 }
