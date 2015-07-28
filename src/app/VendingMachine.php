@@ -85,7 +85,7 @@ class VendingMachine
      *
      * @param string $name ジュースの名前
      *
-     * @return null|juice
+     * @return null|Juice
      */
     public function buyJuice($name)
     {
