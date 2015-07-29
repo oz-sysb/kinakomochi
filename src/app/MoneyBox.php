@@ -56,6 +56,8 @@ class MoneyBox
      *
      * @param integer $amount 売上金額
      *
+     * @fixme privateメソッドにしたい
+     *
      * @return integer
      */
     public function salesProceeds($amount)
