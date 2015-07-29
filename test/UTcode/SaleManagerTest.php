@@ -58,8 +58,8 @@ class SaleManagerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Unit Test: buyableJuice_2
-     * 在庫が無くて買えないパターン
+     * Unit Test: buyableJuice
+     * 繰り返し購入後の在庫確認
      *
      * @param integer $buyCount  購入回数
      * @param integer $amount    投入金額
@@ -69,9 +69,9 @@ class SaleManagerTest extends \PHPUnit_Framework_TestCase
      * @return void
      *
      * @test
-     * @dataProvider providerForBuyableJuice2
+     * @dataProvider providerForBuyableJuiceRepeat
      */
-    public function confirmBuyableJuice2($buyCount, $amount, $juiceName, $expected)
+    public function confirmBuyableJuiceRepeat($buyCount, $amount, $juiceName, $expected)
     {
         for ($i = 0; $i < $buyCount; $i++) {
             $this->saleManager->buy($juiceName);
@@ -82,7 +82,7 @@ class SaleManagerTest extends \PHPUnit_Framework_TestCase
     /**
      * @return array
      */
-    public function providerForBuyableJuice2()
+    public function providerForBuyableJuiceRepeat()
     {
         return [
             [4, 500, 'コーラ',     ['コーラ', 'レッドブル', '水']],
