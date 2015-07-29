@@ -11,6 +11,12 @@ class MoneyBox
     private $total;
 
     /**
+     * 売上金額
+     *
+     * @var integer
+     */
+    private $salesproceeds;
+    /**
      * 投入金額を加算する
      *
      * @param integer $amount 投入金額
@@ -43,5 +49,20 @@ class MoneyBox
         $this->total = 0;
 
         return $this->total;
+    }
+
+    /**
+     * 売上金額を加算する
+     *
+     * @param integer $amount 売上金額
+     *
+     * @fixme privateメソッドにしたい
+     *
+     * @return integer
+     */
+    public function salesProceeds($amount)
+    {
+        $this->salesproceeds += $amount;
+        return $this->salesproceeds;
     }
 }

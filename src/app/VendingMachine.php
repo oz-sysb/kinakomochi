@@ -96,6 +96,7 @@ class VendingMachine
         }
         $juice = $this->saleManager->buy($name);
         $this->moneyBox->addTotal(-$juice->getPrice());
+        $this->moneyBox->salesProceeds($juice->getPrice());
         return $juice;
 
     }
