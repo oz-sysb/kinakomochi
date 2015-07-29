@@ -2,6 +2,8 @@
 namespace VendingMachine;
 
 use VendingMachine\existence\Coke;
+use VendingMachine\existence\RedBull;
+use VendingMachine\existence\Water;
 use VendingMachine\existence\DrinkInterface;
 
 class SaleManager
@@ -26,11 +28,14 @@ class SaleManager
     {
         $this->stock = new Stock();
 
-        $coke = new Coke();
         $this->juices = [
-            $coke
+            $coke = new Coke(),
+            $redBull = new RedBull(),
+            $water = new Water(),
         ];
         $this->stock->modStock($coke->getName(), 5);
+        $this->stock->modStock($redBull->getName(), 5);
+        $this->stock->modStock($water->getName(), 5);
     }
 
     /**
@@ -44,9 +49,13 @@ class SaleManager
     {
         $buyableJuiceNames = [];
         foreach ($this->juices as $juice) {
-            if ($juice->getPrice() <= $amount) {
-                $buyableJuiceNames[] = $juice->getName();
+            if ($juice->getPrice() > $amount) {
+                continue;
             }
+            if ($this->getStockNumber($juice->getName()) <= 0) {
+                continue;
+            }
+            array_push($buyableJuiceNames, $juice->getName());
         }
         return $buyableJuiceNames;
     }
